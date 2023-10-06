@@ -15,6 +15,7 @@ function App() {
         <p>hello</p>
         <p>hey</p>
         <p>살려줘..</p>
+        <p>'야성아'가 사라졌다............</p>
         <a
           className="App-link"
           href="https://reactjs.org"
