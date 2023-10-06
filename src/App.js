@@ -10,10 +10,7 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        <p>hi</p>
-        <p>please..</p>
-        <p>hello</p>
-        <p>hey</p>
+        <p>'야성아'가 사라졌다............</p>
         <a
           className="App-link"
           href="https://reactjs.org"
