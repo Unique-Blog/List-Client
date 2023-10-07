@@ -27,6 +27,7 @@ export const Input0 = styled.input`
   border: 1px solid #bababa;
   width: 260px;
   height: 43px;
+  outline: none;
 `;
 
 export const Button = styled.button`
@@ -35,7 +36,7 @@ export const Button = styled.button`
   background-color: #3DA5F5;
   color: white;
   border-radius: 5px;
-  margin-top: 280px;
+  margin-top: 240px;
   margin-left: 80px;
   border: none;
   ${({ disabled }) => disabled && disabledStyles}

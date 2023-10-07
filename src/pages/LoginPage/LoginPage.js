@@ -1,14 +1,15 @@
 import Header from './Header';
 import React, { useState } from 'react';
 import axios from 'axios';
-import {Form0} from './style';
+import {Form0, Input0, Button} from './style';
 import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
-    
+
+    const isValid = username !== '' && password !== '';  
 
     const handleLogin = async () => {
         try {
@@ -32,19 +33,19 @@ const LoginPage = () => {
         <>
         <Header />
         <Form0>
-        <input
+        <Input0
             type="text"
             placeholder="사용자 이름"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
         />
-        <input
+        <Input0
             type="password"
             placeholder="비밀번호"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
         />
-        <button onClick={handleLogin}>로그인</button>
+        <Button disabled={!isValid} onClick={handleLogin}>로그인</Button>
         </Form0>
         </>
     );
