@@ -1,6 +1,6 @@
 import Header from './Header';
-import Form from './LoginForm';
-import Button from './Button';
+import Form from '../../components/LoginForm/LoginForm';
+import Button from '../../components/Button/Button';
 import React, { useState } from 'react';
 import axios from 'axios';
 
