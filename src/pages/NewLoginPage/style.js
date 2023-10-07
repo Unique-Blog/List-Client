@@ -27,7 +27,7 @@ export const MainForm = styled.div`
   position: relative;
   width: 260px;
   top: 230px;
-  left: 70px
+  margin: 0 auto;
 `;
 
 export const PwForm = styled.div`
