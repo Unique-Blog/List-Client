@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import bg from './images/main_bg.png';
+import bg from './images/main_bg.jpg';
 
 export const GlobalBackground = styled.div`
     background-image: url(${bg});
