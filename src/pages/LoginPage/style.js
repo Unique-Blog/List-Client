@@ -24,6 +24,7 @@ export const Input0 = styled.input`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 5px;
   margin-bottom: 10px;
   border-radius: 5px;
   border: 1px solid #bababa;
@@ -42,4 +43,10 @@ export const Button = styled.button`
   margin-left: 8px;
   border: none;
   ${({ disabled }) => disabled && disabledStyles}
+`;
+
+export const Eye = styled.div`
+  position:relative;
+  left: 110px;
+  top: -45px;
 `;

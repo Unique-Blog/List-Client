@@ -9,12 +9,25 @@ const disabledStyles = css`
 export const Label = styled.label`
   display: block;
   position: relative;
+  font-size: 13px;
+  font-weight: bold;
+  width: 80px;
+`;
+
+export const Label2 = styled.label`
+  display: block;
+  position: relative;
+  top: 13px;
+  font-size: 13px;
+  font-weight: bold;
+  width: 80px;
 `;
 
 export const MainForm = styled.div`
   position: relative;
+  width: 260px;
   top: 230px;
-  left: 80px
+  left: 70px
 `;
 
 export const Input0 = styled.input`
@@ -22,7 +35,36 @@ export const Input0 = styled.input`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 10px;
+  padding: 5px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 1px solid #bababa;
+  width: 260px;
+  height: 43px;
+  outline: none;
+`;
+
+export const Input = styled.input`
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 15px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #bababa;
+  width: 260px;
+  height: 43px;
+  outline: none;
+`;
+
+export const Input1 = styled.input`
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
   border-radius: 5px;
   border: 1px solid #bababa;
   width: 260px;
@@ -37,7 +79,27 @@ export const Button = styled.button`
   color: white;
   border-radius: 5px;
   margin-top: 240px;
-  margin-left: 80px;
+  margin-left: 70px;
   border: none;
   ${({ disabled }) => disabled && disabledStyles}
+`;
+
+export const Desc = styled.p`
+  font-size: 13px;
+  width: 130px;
+  color: red;
+`;
+
+export const Eye = styled.div`
+  position:relative;
+  width: 50px;
+  left: 235px;
+  top: -20px;
+`;
+
+export const Eye2 = styled.div`
+  position:relative;
+  width: 50px;
+  left: 235px;
+  top: -35px;
 `;

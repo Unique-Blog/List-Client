@@ -1,13 +1,28 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { Label, Input0, Button, MainForm } from './style';
+import { Label, Input0, Input1, Button, MainForm, Desc, Eye, Input, Label2, Eye2 } from './style';
+import EyeImage from '../../components/eye/Eye';
 
 const NewLoginPage = () => {
 // 입력한 데이터 담기
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [repassword, setRePassword] = useState('');
+
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false); // 상태 추가
+
+  const [isPasswordVisible2, setIsPasswordVisible2] = useState(false); // 상태 추가
+
+  const togglePasswordVisibility = () => {
+        // 비밀번호 가시성을 토글
+        setIsPasswordVisible(!isPasswordVisible);
+    };
+
+    const togglePasswordVisibility2 = () => {
+        // 비밀번호 가시성을 토글
+        setIsPasswordVisible2(!isPasswordVisible2);
+    };
 
   const navigate = useNavigate();
 
@@ -43,22 +58,26 @@ const NewLoginPage = () => {
         <Label>아이디</Label>
         <Input0
           type="text"
-          placeholder="아이디"
+          placeholder="아이디를 입력해주세요"
           onChange={(e) => setUsername(e.target.value)}
         />
-        <Label>비밀번호</Label>
-        <Input0
-          type="password"
-          placeholder="비밀번호"
+        <Label2>비밀번호</Label2>
+        <Input
+          type={isPasswordVisible ? "text" : "password"}
+          placeholder="비밀번호 입력"
           onChange={(e) => setPassword(e.target.value)}
         />
-        <Input0
-          type="password"
+        <Eye onClick={togglePasswordVisibility}>
+            {isPasswordVisible ? <EyeImage/> : <EyeImage/>}</Eye>
+        <Input1
+          type={isPasswordVisible2 ? "text" : "password"}
           placeholder="비밀번호 확인"
           onChange={(e) => setRePassword(e.target.value)}
         />
+        <Eye2 onClick={togglePasswordVisibility2}>
+            {isPasswordVisible2 ? <EyeImage/> : <EyeImage/>}</Eye2>
         {repassword !== '' && !isSame && (
-          <p className="repassword">{isValid && !isSame ? '비밀번호가 다릅니다.' : ''}</p>
+          <Desc className="repassword">{!isSame ? '비밀번호가 다릅니다.' : ''}</Desc>
         )}
       </MainForm>
       <Button
