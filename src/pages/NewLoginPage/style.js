@@ -30,46 +30,20 @@ export const MainForm = styled.div`
   left: 70px
 `;
 
-export const Input0 = styled.input`
-  display: inline-flex;
+export const PwForm = styled.div`
+  position: absolute;
+  top: 95px;
+  display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 5px;
-  margin-bottom: 15px;
-  border-radius: 5px;
-  border: 1px solid #bababa;
-  width: 260px;
-  height: 43px;
-  outline: none;
+  gap: 5px;
 `;
 
-export const Input = styled.input`
-  display: inline-flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+export const Desc = styled.p`
+  font-size: 13px;
+  width: 130px;
+  color: red;
   position: relative;
-  top: 15px;
-  padding: 5px;
-  border-radius: 5px;
-  border: 1px solid #bababa;
-  width: 260px;
-  height: 43px;
-  outline: none;
-`;
-
-export const Input1 = styled.input`
-  display: inline-flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 5px;
-  border-radius: 5px;
-  border: 1px solid #bababa;
-  width: 260px;
-  height: 43px;
-  outline: none;
+  top: 105px;
 `;
 
 export const Button = styled.button`
@@ -78,30 +52,8 @@ export const Button = styled.button`
   background-color: #3DA5F5;
   color: white;
   border-radius: 5px;
-  margin-top: 240px;
-  margin-left: 70px;
   border: none;
+  position: absolute;
+  top: 220px;
   ${({ disabled }) => disabled && disabledStyles}
-`;
-
-export const Desc = styled.p`
-  font-size: 13px;
-  width: 130px;
-  color: red;
-  position: relative;
-  top: -20px;
-`;
-
-export const Eye = styled.div`
-  position:relative;
-  width: 50px;
-  left: 235px;
-  top: -20px;
-`;
-
-export const Eye2 = styled.div`
-  position:relative;
-  width: 50px;
-  left: 235px;
-  top: -35px;
 `;
