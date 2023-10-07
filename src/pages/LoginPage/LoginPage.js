@@ -14,7 +14,7 @@ const LoginPage = () => {
     //화면 전환
     const navigate = useNavigate();
     //서버와 통신할 때 필요한 정보(아이디, 패스워드)
-    const [username, setUsername] = useState('');
+    const [userId, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
     //링크 인라인스타일
@@ -24,12 +24,12 @@ const LoginPage = () => {
     };                      
     
     //input 활성화 조건
-    const isValid = username !== '' && password !== '';  
+    const isValid = userId !== '' && password !== '';  
     //네트워크 통신 axios
     const handleLogin = async () => {
         try {
         const response = await axios.post('http://10.114.10.19:8080/user/login', {
-            username: username,
+            userId: userId,
             password: password
         });
 
@@ -46,7 +46,7 @@ const LoginPage = () => {
         <>
             <Form0>
                 <PwVisible 
-                    value={username}
+                    value={userId}
                     onChange={(e) => setUsername(e.target.value)}/>
                 <PwNonVisible 
                     placeholder="비밀번호"
