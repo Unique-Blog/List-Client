@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
-import {Input0} from './style';
+import {Input0, MainForm, Label, Button} from './style';
 
 const NewLoginPage = () => {
   const [username, setUsername] = useState('');
@@ -26,12 +26,15 @@ const NewLoginPage = () => {
   return(
     <>
       {/* 헤더부분 */}
-      <Input0
+      <MainForm>
+        <Label>아이디</Label>
+        <Input0
             type="text"
             placeholder="아이디를 입력해주세요"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
         />
+        <Label>비밀번호</Label>
         <Input0
             type="password"
             placeholder="비밀번호를 입력해주세요"
@@ -44,7 +47,8 @@ const NewLoginPage = () => {
             value={repassword}
             onChange={(e) => setRePassword(e.target.value)}
         />
-        <button onClick={handleLogin}>회원가입</button>
+      </MainForm>
+      <Button onClick={handleLogin}>회원가입</Button>
     </>
   );
 }
