@@ -1,7 +1,9 @@
+import {Header0} from './style';
+
 const LoginHeader = () => {
   return (
     <>
-      <header>나만의 리스트</header>
+      <Header0>나만의 리스트</Header0>
     </>
   );
 }

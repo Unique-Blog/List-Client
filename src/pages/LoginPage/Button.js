@@ -1,9 +1,9 @@
-import { Button } from './style';
+import { Button0 } from './style';
 
-const Button = () => {
+const Button = () =>{
   return (
     <>
-      <Button>로그인</Button>
+      <Button0 type="submit">로그인</Button0>
     </>
   );
 }

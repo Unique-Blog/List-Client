@@ -4,7 +4,6 @@ import { GlobalBackground } from './style';
 
 //pages
 import Login from './pages/LoginPage/LoginPage';
-
 function App() {
 
   return (
