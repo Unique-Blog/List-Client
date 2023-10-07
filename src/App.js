@@ -2,9 +2,10 @@
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { GlobalBackground } from './style';
+
 //pages
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Login from './pages/LoginPage';
+import Login from './pages/LoginPage/LoginPage';
 import HomePage from './pages/HomePage/HomePage';
 function App() {
 
