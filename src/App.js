@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { GlobalBackground } from './style';
 
 //pages
-import Login from './pages/LoginPage';
+import Login from './pages/LoginPage/LoginPage';
 
 function App() {
 
