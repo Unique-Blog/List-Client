@@ -3,8 +3,9 @@ import axios from 'axios';
 
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 //styles
-import {Form0, Button } from './style';
+import {Form0, Button, LinkBtn } from './style';
 //Components
 import PwVisible from '../../components/InputPw/PwVisible';
 import PwNonVisible from '../../components/InputPw/PwNonVisible';
@@ -15,6 +16,12 @@ const LoginPage = () => {
     //서버와 통신할 때 필요한 정보(아이디, 패스워드)
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+
+    //링크 인라인스타일
+    const linkStyle = {
+      color: '#B2B3B9', // 원하는 글씨 색상
+      textDecoration: 'none', // 밑줄 제거
+    };                      
     
     //input 활성화 조건
     const isValid = username !== '' && password !== '';  
@@ -46,6 +53,9 @@ const LoginPage = () => {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}/>
                 <Button disabled={!isValid} onClick={handleLogin}>로그인</Button>
+                <LinkBtn>
+                    <Link to="/NewLoginPage" style={linkStyle}>계정이 없으신가요?</Link>
+                </LinkBtn>
             </Form0>
         </>
     );

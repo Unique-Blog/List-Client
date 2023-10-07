@@ -35,3 +35,7 @@ export const Button = styled.button`
   border: none;
   ${({ disabled }) => disabled && disabledStyles}
 `;
+
+export const LinkBtn = styled.div`
+  margin-top: 80px;
+`;
