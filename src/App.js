@@ -1,4 +1,5 @@
 //부트스트랩 라이브러리 import
+import './App.module.css'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { GlobalBackground } from './style';

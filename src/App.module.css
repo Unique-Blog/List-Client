@@ -1,0 +1,14 @@
+@font-face {
+    font-family: Cafe24Bold;
+    src: url('./fonts/Cafe24Supermagic-Bold-v1.0.woff');
+  }
+  
+  @font-face {
+    font-family: Cafe24Regular;
+    src: url('./fonts/Cafe24Supermagic-Regular-v1.0.woff');
+  }
+
+  body {
+    font-family: Cafe24Regular, sans-serif;
+    font-family: Cafe24Bold, sans-serif;
+  }

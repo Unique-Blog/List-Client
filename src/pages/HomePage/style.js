@@ -2,9 +2,10 @@ import styled from 'styled-components';
 
 
 export const Header = styled.div`
-  font-size: 30px;
-  margin-top: 110px;
+  font-size: 35px;
+  margin-top: 120px;
   text-align: center;
+  font-family: 'Cafe24Bold';
 `;
 
 export const Container = styled.div`
@@ -13,5 +14,6 @@ export const Container = styled.div`
     margin: 0 auto 0 auto; 
     height: 440px;
     width: 350px;
-    border: 1px solid #000;
+    justify-content: space-evenly;
 `
+
