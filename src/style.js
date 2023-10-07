@@ -5,7 +5,8 @@ export const GlobalBackground = styled.div`
     background-image: url(${bg});
     background-repeat: no-repeat;
     background-size: cover; /* 'cover'로 수정 */
-    background-position: center;
+    background-position: top;
+    position: fixed;
     width: 100vw;
     height: 100vh;
 `;
