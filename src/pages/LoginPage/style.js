@@ -1,11 +1,5 @@
 import styled, { css } from 'styled-components';
 
-export const Header0 = styled.h1`
-  margin-top: 210px;
-  text-align: center;
-  margin-bottom: 20px;
-`;
-
 export const Form0 = styled.div`
   display: flex;
   position: relative;
