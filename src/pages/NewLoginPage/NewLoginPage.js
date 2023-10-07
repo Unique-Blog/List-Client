@@ -29,7 +29,6 @@ const NewLoginPage = () => {
         const response = await axios.post('http://10.114.10.19:8080/user/login', {
             username: userId,
             password: password,
-            repassword: repassword,
         });
 
         // 서버에서 반환한 데이터를 기반으로 로그인 상태를 처리할 수 있습니다.
