@@ -6,7 +6,7 @@ export const Button0 = styled.button`
   background-color: #3DA5F5;
   color: white;
   border-radius: 5px;
-  margin-top: 100px;
+  margin-top: 20px;
   margin-left: 50px
 `;
 
@@ -24,3 +24,4 @@ export const Input0 = styled.input`
   width: 150px;
   margin: 5px;
 `;
+

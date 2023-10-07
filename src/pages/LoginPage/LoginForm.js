@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Form0, Input0} from './style';
+import { Form0, Input0 } from './style';
+import axios from 'axios'; // axios 라이브러리를 가져옵니다.
 
 const LoginForm = () => {
   const [formData, setFormData] = useState({
@@ -14,7 +15,6 @@ const LoginForm = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  //비밀번호 보이게 하기
   const handleTogglePassword = () => {
     setShowPassword(!showPassword);
   };
@@ -22,20 +22,24 @@ const LoginForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // 폼 데이터를 서버로 전송
-    fetch('서버의 주소', {
-      method: 'POST',
-      body: JSON.stringify(formData),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-      .then((res) => res.json())
-      .then((data) =>
-        data.message === 'SUCCESS'
-          ? alert('회원가입 성공!')
-          : alert('회원가입 실패...')
-      );
+    // axios를 사용하여 서버로 POST 요청을 보냅니다.
+    axios
+      .post('서버의 주소', formData, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+      .then((response) => {
+        const data = response.data;
+        if (data.message === 'SUCCESS') {
+          alert('회원가입 성공!');
+        } else {
+          alert('회원가입 실패...');
+        }
+      })
+      .catch((error) => {
+        console.error('에러 발생:', error);
+      });
   };
 
   return (
