@@ -88,6 +88,8 @@ export const Desc = styled.p`
   font-size: 13px;
   width: 130px;
   color: red;
+  position: relative;
+  top: -20px;
 `;
 
 export const Eye = styled.div`
