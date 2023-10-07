@@ -1,11 +1,5 @@
 import styled, { css } from 'styled-components';
 
-const disabledStyles = css`
-  opacity: 0.6;
-  pointer-events: none;
-  /* 다른 스타일을 추가하려면 여기에 추가 */
-`;
-
 export const Header0 = styled.h1`
   margin-top: 210px;
   text-align: center;
@@ -14,39 +8,30 @@ export const Header0 = styled.h1`
 
 export const Form0 = styled.div`
   display: flex;
+  position: relative;
+  top: 250px;
+  width: 300px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 0 auto;
+  gap: 6px;
 `;
 
-export const Input0 = styled.input`
-  display: inline-flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 5px;
-  margin-bottom: 10px;
-  border-radius: 5px;
-  border: 1px solid #bababa;
-  width: 260px;
-  height: 43px;
-  outline: none;
+const disabledStyles = css`
+  opacity: 0.6;
+  pointer-events: none;
+  /* 다른 스타일을 추가하려면 여기에 추가 */
 `;
 
 export const Button = styled.button`
   width: 260px;
   height: 50px;
+  position: absolute;
+  top: 120px;
   background-color: #3DA5F5;
   color: white;
   border-radius: 5px;
-  margin-top: 130px;
-  margin-left: 8px;
   border: none;
   ${({ disabled }) => disabled && disabledStyles}
-`;
-
-export const Eye = styled.div`
-  position:relative;
-  left: 110px;
-  top: -45px;
 `;
