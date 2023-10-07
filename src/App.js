@@ -2,15 +2,12 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { GlobalBackground } from './style';
 //pages
-
+import Login from './pages/LoginPage';
 function App() {
 
   return (
       <GlobalBackground>
-        <div>hihihi</div>
-        <div>hihihi</div>
-        <div>hihihi</div>
-        <div>hihihi</div>
+        <Login/>
       </GlobalBackground>
   );
 }
