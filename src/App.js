@@ -6,14 +6,12 @@ import { GlobalBackground } from './style';
 function App() {
 
   return (
-    <div className="App">
       <GlobalBackground>
-      <div>hihihi</div>
-      <div>hihihi</div>
-      <div>hihihi</div>
-      <div>hihihi</div>
+        <div>hihihi</div>
+        <div>hihihi</div>
+        <div>hihihi</div>
+        <div>hihihi</div>
       </GlobalBackground>
-    </div>
   );
 }
 
