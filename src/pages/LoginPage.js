@@ -2,7 +2,7 @@
 const LoginPage = () =>{
     return(
         <>
-            <div>화인</div>
+            <header>나만의 리스트</header>
         </>
     );
 }
