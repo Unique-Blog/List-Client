@@ -13,7 +13,6 @@ const HomePage = () => {
                 <ToBuList/>
                 <ToBuList/>
             </Container>
-            
         </>
     );
 

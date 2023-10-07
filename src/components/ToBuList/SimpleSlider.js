@@ -4,17 +4,15 @@ import arrow from "../../images/arrow.png"
 import checkbox from "../../images/checkbox.png"
 import uncheckbox from "../../images/uncheckbox.png"
 
-import { SlideText, BackButton, FrontButton, BackImg, FrontImg} from "./style";
+import { SlideText, BackButton, FrontButton, BackImg, FrontImg, CheckBoxImg} from "./style";
 
 import styled from 'styled-components';
 
 const StyledSlider = styled(Slider)`
 .slick-slide div{
-      display: flex;
-      flex-direction: row;
       outline: none;
       font-size: 18px;
-      margin-left:15px;
+      margin-left:5px;
       margin-top: 6px;
       height: 30px;
     }
@@ -51,8 +49,12 @@ function SimpleSlider() {
       <StyledSlider {...settings}>
         {a.map((a, index) => (
           <div key={index}>
-            <FrontImg alt= "체크박스" src={checkbox}></FrontImg>
-            {a}
+            <SlideText>
+              <CheckBoxImg alt= "체크박스" src={checkbox}></CheckBoxImg>
+              {a}
+            </SlideText>
+            
+            
             </div>
         ))}
       </StyledSlider>

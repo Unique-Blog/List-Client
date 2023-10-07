@@ -82,16 +82,22 @@ export const FrontImg = styled.img `
     height: 20px;
 `;
 
+export const CheckBoxImg = styled.img `
+    width: 15px;
+    height: 15px;
+    margin-right: 15px;
+`;
 
-export const SlideText = styled.div`
+export const SlideText = styled.span`
+    display:flex;
     font-size: 18px;
-    height: 30px;
+    height: 100%;
+    width: 100%;
     text-align: left;
+    align-items: center;
 `;
 
 export const SlideContainer = styled.div`
     width: 250px;
     height: 130px;
 `;
-
-
