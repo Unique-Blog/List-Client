@@ -1,16 +1,20 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+
+const disabledStyles = css`
+  opacity: 0.6;
+  pointer-events: none;
+  /* 다른 스타일을 추가하려면 여기에 추가 */
+`;
 
 export const Label = styled.label`
   display: block;
-  text-align: left;
   position: relative;
-  left: 80px;
 `;
 
 export const MainForm = styled.div`
   position: relative;
   top: 230px;
-  text-align: center;
+  left: 80px
 `;
 
 export const Input0 = styled.input`
@@ -26,7 +30,7 @@ export const Input0 = styled.input`
 `;
 
 export const Button = styled.button`
-  width: 256px;
+  width: 260px;
   height: 50px;
   background-color: #3DA5F5;
   color: white;
@@ -34,4 +38,5 @@ export const Button = styled.button`
   margin-top: 280px;
   margin-left: 80px;
   border: none;
+  ${({ disabled }) => disabled && disabledStyles}
 `;
