@@ -9,6 +9,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from './pages/LoginPage/LoginPage';
 import HomePage from './pages/HomePage/HomePage';
 import NewLoginPage from './pages/NewLoginPage/NewLoginPage';
+import ToDoListPage from './pages/ToDoListPage/ToDoListPage';
 function App() {
 
   return (
@@ -17,6 +18,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Login/>} />
             <Route path="/HomePage" element={<HomePage/>} />
+            <Route path="/ToDoListPage" element={<ToDoListPage/>} />
             <Route path="/NewLoginPage" element={<NewLoginPage/>} />
           </Routes>
         </Router>

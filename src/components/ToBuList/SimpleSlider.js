@@ -53,8 +53,6 @@ function SimpleSlider() {
               <CheckBoxImg alt= "체크박스" src={checkbox}></CheckBoxImg>
               {a}
             </SlideText>
-            
-            
             </div>
         ))}
       </StyledSlider>
