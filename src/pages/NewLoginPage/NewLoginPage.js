@@ -26,18 +26,19 @@ const NewLoginPage = () => {
     //네트워크 통신 axios
   const handleLogin = async () => {
     try {
-        const response = await axios.post('http://10.114.10.19:8080/user/login', {
-            username: userId,
-            password: password,
+        const response = await axios.post(
+          `${process.env.REACT_APP_SERVER_URL}/user/signup`, {
+            userId: userId,
+            userPw: password,
         });
 
         // 서버에서 반환한 데이터를 기반으로 로그인 상태를 처리할 수 있습니다.
-        console.log('로그인 성공:', response.data);
+        console.log('회원가입 성공:', response.data);
         //네비게이션
-        navigate('/LoginPage');
+        navigate('/');
         } catch (error) {
         // 로그인 실패 시 처리
-        console.error('로그인 실패:', error);
+        console.error('회원가입 실패:', error);
         }
   };
 

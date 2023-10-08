@@ -28,13 +28,16 @@ const LoginPage = () => {
     //네트워크 통신 axios
     const handleLogin = async () => {
         try {
-        const response = await axios.post('http://10.114.10.19:8080/user/login', {
+        const response = await axios.post(
+            `${process.env.REACT_APP_SERVER_URL}/user/login`, {
             userId: userId,
             password: password
         });
 
         // 서버에서 반환한 데이터를 기반으로 로그인 상태를 처리할 수 있습니다.
         console.log('로그인 성공:', response.data);
+        //로컬스토리지에 userId 저장
+        localStorage.setItem("userId", userId);
         //로그인 성공시 화면 전환
         navigate('/HomePage');
         } catch (error) {
