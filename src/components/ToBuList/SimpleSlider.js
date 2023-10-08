@@ -25,34 +25,14 @@ const StyledSlider = styled(Slider)`
   }
 `;
 
-function SimpleSlider({userData, bucketData, onDataChange}) {
+function SimpleSlider({userData, bucketData, onDataChange, $Done}) {
+  const [bool, setBool] = useState(null);
+  const onToggleHandle = () => {
+    setBool(!bool);
+  }
+
   const Todo = userData || [];
   const bucket = bucketData || [];
-
-  const totalItems = useMemo(() => (userData ? userData.length : 0), [userData]);
-  const [selectedImage, setSelectedImages] = useState({});
-  const [clickedCount, setClickedCount] = useState(0);
-
-  const handleImageClick = async (index) => {
-    setSelectedImages((prevImages) => ({
-      ...prevImages,
-      [index]: prevImages[index] === checkbox ? uncheckbox : checkbox,
-    }));
-  if (selectedImage[index] === checkbox) {
-        setSelectedImages((prevImages) => ({
-          ...prevImages,
-          [index]: uncheckbox,
-        }));
-        setClickedCount(clickedCount - 1);
-      } else {
-        // 이전 클릭을 취소하고 클릭 토글
-        setSelectedImages((prevImages) => ({
-          ...prevImages,
-          [index]: checkbox,
-        }));
-        setClickedCount(clickedCount + 1);
-      }
-  };
 
   async function TodoData(id) {
     const formDataId = new FormData();
@@ -81,11 +61,6 @@ function SimpleSlider({userData, bucketData, onDataChange}) {
           console.error("데이터 전송 중 오류 발생:", error);
         }
     }
-
-  useEffect(() => {
-    const calculatedDealt = Math.round((clickedCount / totalItems) * 100);
-    onDataChange(calculatedDealt); // onDataChange로 전달
-  }, [clickedCount, totalItems, onDataChange]);
   const settings = {
     dots: true,
     infinite: true,
@@ -110,15 +85,17 @@ function SimpleSlider({userData, bucketData, onDataChange}) {
       <StyledSlider {...settings}>
         {Todo.map((Todo, index) => (
           <div key={index}>
-            <SlideText onClick={() => {
-              handleImageClick(index);
-              const id =Todo.id;
-              TodoData(id);
-              }}>
+            <SlideText>
               <CheckBoxImg
                 alt="체크박스"
-                src={selectedImage[index] || uncheckbox}
+                $Done={Todo.completed}
+                onClick={() => {
+                onToggleHandle($Done);
+                const id =Todo.id;
+                TodoData(id);
+              }}
               />
+
               {Todo.content}
             </SlideText> 
             </div>
@@ -126,13 +103,11 @@ function SimpleSlider({userData, bucketData, onDataChange}) {
         {bucket.map((bucket, index) => (
           <div key={index}>
             <SlideText onClick={() => {
-              handleImageClick(index);
               const id = bucket.id
               BucketData(id);
             }}>
               <CheckBoxImg
                 alt="체크박스"
-                src={selectedImage[index] || uncheckbox}
               />
               {bucket.content}
             </SlideText> 

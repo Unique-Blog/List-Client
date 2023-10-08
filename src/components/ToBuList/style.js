@@ -1,4 +1,7 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+
+import checkbox from "../../images/checkbox.png"
+import uncheckbox from "../../images/uncheckbox.png"
 
 export const ListContainer = styled.div`
     display: flex;
@@ -21,22 +24,22 @@ export const ProgressContainer = styled.div`
 `;
 
 export const Progress = styled.div`
-  width: 170px;
-  height: 8px;
-  border-radius: 20px;
-  background-color: white;
-  border: 1px solid black;
-  margin: auto;
+    width: 170px;
+    height: 8px;
+    border-radius: 20px;
+    background-color: white;
+    border: 1px solid black;
+    margin: auto;
 `;
 
 export const Progress2 = styled.div`
-  display:flex;
-  width: 180px;
-  height: 15px;
-  border-radius: 20px;
-  background-color: #E0E2E7; //회색
-  border: 1px solid black;
-  margin-right: -10px;
+    display:flex;
+    width: 180px;
+    height: 15px;
+    border-radius: 20px;
+    background-color: #E0E2E7; //회색
+    border: 1px solid black;
+    margin-right: -10px;
 `;
 
 // Dealt 컴포넌트를 스타일링합니다
@@ -83,10 +86,24 @@ export const FrontImg = styled.img `
     height: 20px;
 `;
 
-export const CheckBoxImg = styled.img `
+export const CheckBoxImg = styled.div `
     width: 15px;
     height: 15px;
     margin-right: 15px;
+
+    background-color: white;
+    background-image: url(${uncheckbox});
+    background-repeat: no-repeat;
+    background-size: 15px;
+
+    ${props =>
+    props.$Done &&
+    css`
+        background-color: white;
+        background-image: url(${checkbox});
+        background-repeat: no-repeat;
+        background-size: 15px;
+    `}
 `;
 
 export const SlideText = styled.span`
