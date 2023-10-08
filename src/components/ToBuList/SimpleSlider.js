@@ -23,8 +23,9 @@ const StyledSlider = styled(Slider)`
   }
 `;
 
-function SimpleSlider() {
-  const a = ['방 청소하기', '운영체제 쪽지시험 준비하기', '운동하기', 'mango', 'podo', '1', '2', '3', '4', '5', '6'];
+function SimpleSlider({userData, bucketData}) {
+  const a = userData || [];
+  const b = bucketData || [];
   const settings = {
     dots: true,
     infinite: true,
@@ -51,13 +52,20 @@ function SimpleSlider() {
           <div key={index}>
             <SlideText>
               <CheckBoxImg alt= "체크박스" src={checkbox}></CheckBoxImg>
-              {a}
-            </SlideText>
-            
-            
+              {a.content}
+            </SlideText> 
+            </div>
+        ))}
+        {b.map((b, index) => (
+          <div key={index}>
+            <SlideText>
+              <CheckBoxImg alt= "체크박스" src={checkbox}></CheckBoxImg>
+              {b.content}
+            </SlideText> 
             </div>
         ))}
       </StyledSlider>
+      
     </div>
   );
 }
