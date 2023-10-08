@@ -1,11 +1,13 @@
+//style
 import { Header, Container } from "./style";
+//components
 import ToBuList from "../../components/ToBuList/ToBuList";
-
+//library
 import React, { createContext, useContext, useEffect, useState } from "react";
 import axios from "axios";
 
+//하위 컴포넌트에 공유 데이터를 전달하는 함수
 const DataContext = createContext();
-
 export const useData = () => {
     return useContext(DataContext);
 };
@@ -21,6 +23,7 @@ const HomePage = () => {
             `${process.env.REACT_APP_SERVER_URL}/todo/search`,{
                 userId: userId,
             });
+            console.log("데이터: ", response1.data)
         return response1;
     }
 

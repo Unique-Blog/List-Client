@@ -1,12 +1,14 @@
+//style
+import { SlideText, BackButton, FrontButton, BackImg, FrontImg, CheckBoxImg} from "./style";
+import styled from 'styled-components';
+//library
 import React, { useEffect , useState, useMemo } from "react";
 import Slider from "react-slick";
+import axios from "axios";
+//images
 import arrow from "../../images/arrow.png"
 import checkbox from "../../images/checkbox.png"
 import uncheckbox from "../../images/uncheckbox.png"
-
-import { SlideText, BackButton, FrontButton, BackImg, FrontImg, CheckBoxImg} from "./style";
-
-import styled from 'styled-components';
 
 const StyledSlider = styled(Slider)`
 .slick-slide div{
@@ -24,14 +26,14 @@ const StyledSlider = styled(Slider)`
 `;
 
 function SimpleSlider({userData, bucketData, onDataChange}) {
-  const a = userData || [];
-  const b = bucketData || [];
+  const Todo = userData || [];
+  const bucket = bucketData || [];
 
   const totalItems = useMemo(() => (userData ? userData.length : 0), [userData]);
   const [selectedImage, setSelectedImages] = useState({});
   const [clickedCount, setClickedCount] = useState(0);
 
-  const handleImageClick = (index) => {
+  const handleImageClick = async (index) => {
     setSelectedImages((prevImages) => ({
       ...prevImages,
       [index]: prevImages[index] === checkbox ? uncheckbox : checkbox,
@@ -51,8 +53,35 @@ function SimpleSlider({userData, bucketData, onDataChange}) {
         setClickedCount(clickedCount + 1);
       }
   };
-  console.log("총 데이터 개수: ", totalItems)
-  console.log("클릭된 데이터 개수: ", clickedCount)
+
+  async function TodoData(id) {
+    const formDataId = new FormData();
+    formDataId.append("id", id);
+      try {
+        const response = await axios.post(
+          `${process.env.REACT_APP_SERVER_URL}/todo/completed`, 
+          formDataId,
+        );
+        console.log("서버 응답:", response.data);
+      } catch (error) {
+        console.error("데이터 전송 중 오류 발생:", error);
+      }
+    }
+
+    async function BucketData(id){
+      const formDataId = new FormData();
+      formDataId.append("id", id);
+        try {
+          const response = await axios.post(
+            `${process.env.REACT_APP_SERVER_URL}/todo/completed`, 
+            formDataId,
+          );
+          console.log("서버 응답:", response.data);
+        } catch (error) {
+          console.error("데이터 전송 중 오류 발생:", error);
+        }
+    }
+
   useEffect(() => {
     const calculatedDealt = Math.round((clickedCount / totalItems) * 100);
     onDataChange(calculatedDealt); // onDataChange로 전달
@@ -79,29 +108,33 @@ function SimpleSlider({userData, bucketData, onDataChange}) {
   return (
     <div >
       <StyledSlider {...settings}>
-        {a.map((a, index) => (
+        {Todo.map((Todo, index) => (
           <div key={index}>
             <SlideText onClick={() => {
               handleImageClick(index);
+              const id =Todo.id;
+              TodoData(id);
               }}>
               <CheckBoxImg
                 alt="체크박스"
                 src={selectedImage[index] || uncheckbox}
               />
-              {a.content}
+              {Todo.content}
             </SlideText> 
             </div>
         ))}
-        {b.map((b, index) => (
+        {bucket.map((bucket, index) => (
           <div key={index}>
             <SlideText onClick={() => {
               handleImageClick(index);
+              const id = bucket.id
+              BucketData(id);
             }}>
               <CheckBoxImg
                 alt="체크박스"
                 src={selectedImage[index] || uncheckbox}
               />
-              {b.content}
+              {bucket.content}
             </SlideText> 
             </div>
         ))}

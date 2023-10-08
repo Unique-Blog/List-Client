@@ -14,9 +14,8 @@ import { useState } from 'react';
 import SimpleSlider from './SimpleSlider';
 
 const ToBuList = ({ userData, bucketData, newData }) => {
-
+    //히위 컴포넌트에서 데이터를 전달 받는 함수
     const [dealt, setDealt] = useState(0);
-
     const handleDataChange = (newDealt) => {
         setDealt(newDealt);
     };
@@ -24,7 +23,6 @@ const ToBuList = ({ userData, bucketData, newData }) => {
 
     return (
         <ListContainer>
-    
             <ProgressContainer>
                 {listType}
                 <Progress2>
@@ -35,13 +33,10 @@ const ToBuList = ({ userData, bucketData, newData }) => {
                 {dealt}%
             </ProgressContainer>
             <BodyContainer>
-
                 <SlideContainer>
                     <SimpleSlider onDataChange={handleDataChange} userData={userData || bucketData} />
                 </SlideContainer>
-
             </BodyContainer>
-
         </ListContainer>
     );
 }
