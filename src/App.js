@@ -10,7 +10,6 @@ import Login from './pages/LoginPage/LoginPage';
 import HomePage from './pages/HomePage/HomePage';
 import NewLoginPage from './pages/NewLoginPage/NewLoginPage';
 import ToDoListPage from './pages/ToDoListPage/ToDoListPage';
-import Scrap from './components/Scrap/Scrap';
 function App() {
 
   return (
@@ -21,7 +20,6 @@ function App() {
             <Route path="/HomePage" element={<HomePage/>} />
             <Route path="/ToDoListPage" element={<ToDoListPage/>} />
             <Route path="/NewLoginPage" element={<NewLoginPage/>} />
-            <Route path="/Scrap" element={<Scrap/>} />
           </Routes>
         </Router>
       </GlobalBackground>
