@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { useEffect , useState, useMemo } from "react";
 import Slider from "react-slick";
 import arrow from "../../images/arrow.png"
 import checkbox from "../../images/checkbox.png"
@@ -23,19 +23,40 @@ const StyledSlider = styled(Slider)`
   }
 `;
 
-function SimpleSlider({userData, bucketData}) {
+function SimpleSlider({userData, bucketData, onDataChange}) {
   const a = userData || [];
   const b = bucketData || [];
 
+  const totalItems = useMemo(() => (userData ? userData.length : 0), [userData]);
   const [selectedImage, setSelectedImages] = useState({});
+  const [clickedCount, setClickedCount] = useState(0);
 
   const handleImageClick = (index) => {
     setSelectedImages((prevImages) => ({
       ...prevImages,
       [index]: prevImages[index] === checkbox ? uncheckbox : checkbox,
     }));
+  if (selectedImage[index] === checkbox) {
+        setSelectedImages((prevImages) => ({
+          ...prevImages,
+          [index]: uncheckbox,
+        }));
+        setClickedCount(clickedCount - 1);
+      } else {
+        // 이전 클릭을 취소하고 클릭 토글
+        setSelectedImages((prevImages) => ({
+          ...prevImages,
+          [index]: checkbox,
+        }));
+        setClickedCount(clickedCount + 1);
+      }
   };
-
+  console.log("총 데이터 개수: ", totalItems)
+  console.log("클릭된 데이터 개수: ", clickedCount)
+  useEffect(() => {
+    const calculatedDealt = Math.round((clickedCount / totalItems) * 100);
+    onDataChange(calculatedDealt); // onDataChange로 전달
+  }, [clickedCount, totalItems, onDataChange]);
   const settings = {
     dots: true,
     infinite: true,
@@ -60,7 +81,9 @@ function SimpleSlider({userData, bucketData}) {
       <StyledSlider {...settings}>
         {a.map((a, index) => (
           <div key={index}>
-            <SlideText onClick={() => handleImageClick(index)}>
+            <SlideText onClick={() => {
+              handleImageClick(index);
+              }}>
               <CheckBoxImg
                 alt="체크박스"
                 src={selectedImage[index] || uncheckbox}
@@ -71,7 +94,9 @@ function SimpleSlider({userData, bucketData}) {
         ))}
         {b.map((b, index) => (
           <div key={index}>
-            <SlideText onClick={() => handleImageClick(index)}>
+            <SlideText onClick={() => {
+              handleImageClick(index);
+            }}>
               <CheckBoxImg
                 alt="체크박스"
                 src={selectedImage[index] || uncheckbox}

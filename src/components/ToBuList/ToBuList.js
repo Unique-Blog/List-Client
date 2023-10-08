@@ -10,13 +10,17 @@ import {
 } from './style';
 
 //library
-
+import { useState, useEffect } from 'react';
 import SimpleSlider from './SimpleSlider';
 
-const ToBuList = ({ userData, bucketData }) => {
+const ToBuList = ({ userData, bucketData, newData }) => {
 
-    const dealt = 80; // 여기에 전체 개수/ 완료한 개수 넣기
-    const listType = userData ? "To do list" : "Bucket list";
+    const [dealt, setDealt] = useState(0);
+
+    const handleDataChange = (newDealt) => {
+        setDealt(newDealt);
+    };
+    const listType = userData ? "To do list" : "Bucket";
 
     return (
         <ListContainer>
@@ -33,7 +37,7 @@ const ToBuList = ({ userData, bucketData }) => {
             <BodyContainer>
 
                 <SlideContainer>
-                    <SimpleSlider userData={userData || bucketData} />
+                    <SimpleSlider onDataChange={handleDataChange} userData={userData || bucketData} />
                 </SlideContainer>
 
             </BodyContainer>
