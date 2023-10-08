@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import Slider from "react-slick";
 import arrow from "../../images/arrow.png"
 import checkbox from "../../images/checkbox.png"
@@ -26,6 +26,16 @@ const StyledSlider = styled(Slider)`
 function SimpleSlider({userData, bucketData}) {
   const a = userData || [];
   const b = bucketData || [];
+
+  const [selectedImage, setSelectedImages] = useState({});
+
+  const handleImageClick = (index) => {
+    setSelectedImages((prevImages) => ({
+      ...prevImages,
+      [index]: prevImages[index] === checkbox ? uncheckbox : checkbox,
+    }));
+  };
+
   const settings = {
     dots: true,
     infinite: true,
@@ -50,16 +60,22 @@ function SimpleSlider({userData, bucketData}) {
       <StyledSlider {...settings}>
         {a.map((a, index) => (
           <div key={index}>
-            <SlideText>
-              <CheckBoxImg alt= "체크박스" src={checkbox}></CheckBoxImg>
+            <SlideText onClick={() => handleImageClick(index)}>
+              <CheckBoxImg
+                alt="체크박스"
+                src={selectedImage[index] || uncheckbox}
+              />
               {a.content}
             </SlideText> 
             </div>
         ))}
         {b.map((b, index) => (
           <div key={index}>
-            <SlideText>
-              <CheckBoxImg alt= "체크박스" src={checkbox}></CheckBoxImg>
+            <SlideText onClick={() => handleImageClick(index)}>
+              <CheckBoxImg
+                alt="체크박스"
+                src={selectedImage[index] || uncheckbox}
+              />
               {b.content}
             </SlideText> 
             </div>

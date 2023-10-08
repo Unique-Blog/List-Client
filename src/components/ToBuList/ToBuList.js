@@ -13,15 +13,16 @@ import {
 
 import SimpleSlider from './SimpleSlider';
 
-const ToBuList = ({ userData }) => {
+const ToBuList = ({ userData, bucketData }) => {
 
     const dealt = 80; // 여기에 전체 개수/ 완료한 개수 넣기
+    const listType = userData ? "To do list" : "Bucket list";
 
     return (
         <ListContainer>
     
             <ProgressContainer>
-                To do list
+                {listType}
                 <Progress2>
                     <Progress>
                         <Dealt style={{ width: `${dealt}%` }} />
@@ -32,7 +33,7 @@ const ToBuList = ({ userData }) => {
             <BodyContainer>
 
                 <SlideContainer>
-                    <SimpleSlider userData = {userData}/>
+                    <SimpleSlider userData={userData || bucketData} />
                 </SlideContainer>
 
             </BodyContainer>

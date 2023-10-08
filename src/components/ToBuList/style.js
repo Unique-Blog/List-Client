@@ -7,6 +7,7 @@ export const ListContainer = styled.div`
     margin: 20px 10px;
     border-radius: 10px;
     border: 1px solid #000;
+    background-color: white;
 `;
 
 export const ProgressContainer = styled.div`

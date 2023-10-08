@@ -97,7 +97,7 @@ const HomePage = () => {
             <DataContext.Provider value={userData}>
                 <Container>
                     <ToBuList userData = {userData}/>
-                    <ToBuList userData = {bucketData}/>
+                    <ToBuList bucketData = {bucketData}/>
                 </Container>
             </DataContext.Provider>
         </>
