@@ -10,7 +10,7 @@ import {
 } from './style';
 
 //library
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import SimpleSlider from './SimpleSlider';
 
 const ToBuList = ({ userData, bucketData, newData }) => {
