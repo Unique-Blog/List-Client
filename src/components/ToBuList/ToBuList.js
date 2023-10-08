@@ -11,16 +11,15 @@ import {
 
 //library
 
-
 import SimpleSlider from './SimpleSlider';
 
-const ToBuList = () => {
+const ToBuList = ({ userData }) => {
 
     const dealt = 50; // 여기에 전체 개수/ 완료한 개수 넣기
 
     return (
         <ListContainer>
-            
+    
             <ProgressContainer>
                 To do list
                 <Progress2>
@@ -36,8 +35,17 @@ const ToBuList = () => {
                     <SimpleSlider />
                 </SlideContainer>
 
-
             </BodyContainer>
+            <ul>
+                {Array.isArray(userData) &&
+                    userData.map((item, index) => (
+                        <li key={index}>
+                            {item.content} {/* content 사용 */}
+                            {item.completed ? '완료' : '미완료'} {/* completed 사용 */}
+                            {console.log(item.content, index)};
+                        </li>
+                    ))}
+            </ul>
         </ListContainer>
     );
 }
