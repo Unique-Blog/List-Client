@@ -39,7 +39,7 @@ const HomePage = () => {
     useEffect(() => {
         userReq()
             .then((response1) => {
-                setUserData(response1.data);  
+                setUserData(response1.data.allList);  
             })
             .catch((error) => {
                 console.log('실패');

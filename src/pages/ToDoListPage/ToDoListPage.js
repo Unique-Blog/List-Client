@@ -12,6 +12,7 @@ import {
     WriteButton,
     WriteImg,
     ToDoItem,
+    ModalContainer,
 
 } from "./style";
 
@@ -25,8 +26,8 @@ import Write from "../../images/pencil.png";
 
 
 
-
 const ToDoListPage = () => {
+
     const [serverListData, setServerListData] = useState([]);
     const [inputText, setInputText] = useState("");
     const [text, setText] = useState("");
@@ -36,7 +37,7 @@ const ToDoListPage = () => {
             try {
                 const response = await searchListReq(sendId);
                 console.log("서버 데이터 조회 결과: ", response.data);
-                setServerListData(response.data);
+                setServerListData(response.data.allList);
             } catch (error) {
                 console.error('데이터 조회 실패:', error);
             }
@@ -101,12 +102,13 @@ const ToDoListPage = () => {
 
                 {serverListData.map((serverData, index) => (
                     <div key={index}>
-                        <ToDoItem
+                        <ToDoItem 
                             $done={serverData.completed}
                             content={serverData.content}
                             id={serverData.id}
                         >
                         </ToDoItem>
+
                     </div>
                 ))}
 

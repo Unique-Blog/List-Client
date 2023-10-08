@@ -5,12 +5,10 @@ export const Container = styled.div`
   height: 150px;
   border: 1px solid #bababa;
   border-radius: 4px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 20px;
-  align-items: center;
   background-color: white;
+  position: fixed;
+  top: 335px;
+  left: 95px;
 `;
 
 export const Text = styled.input`
@@ -18,14 +16,20 @@ export const Text = styled.input`
   border: none;
   border-bottom: 1px solid;
   outline: none;
+  position: absolute;
+  top: 35px;
+  left:20px;
 `;
 
 export const BtnContainer = styled.div`
-  width: 250px;
+  width: 200px;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 25px
+  gap: 25px;
+  position: absolute;
+  top: 80px;
+  left: 20px;
 `;
 
 export const Modify = styled.div`

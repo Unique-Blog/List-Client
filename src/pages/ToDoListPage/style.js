@@ -3,6 +3,8 @@ import CheckBox  from '../../images/checkbox.png';
 import UnCheckBox  from '../../images/uncheckbox.png';
 import Setting from '../../images/setting.png';
 import React, { useState } from 'react';
+//components
+import Scrap from "../../components/Scrap/Scrap";
 
 export const Header = styled.div`
   display:flex;
@@ -58,6 +60,7 @@ export const AddContainer = styled.div`
   border: 1px solid #000;
   border-radius: 5px;
   outline: none;
+  position: relative;
 `;
 
 export const AddForm = styled.input`
@@ -140,6 +143,11 @@ const Content = styled.div`
 
 
 export const ToDoItem = function({$done, content, id}) {
+    //modal 창
+    const [open, setOpen] = useState(false);
+
+    function OpenModal(){setOpen(true);}
+    function closeModal(){setOpen(false);}
     //체크박스
     const [bool, setBool] = useState($done);
     const onToggleHandle = () => {
@@ -147,17 +155,15 @@ export const ToDoItem = function({$done, content, id}) {
         console.log(id); //서버에 아이디 보내기
     };
 
-   
-
     const settingHandle = () => {
-
 
     }
 
     return (
+        <>
         <ListContainer>
             <CheckboxButton $done = {bool} 
-             onClick={onToggleHandle} 
+                onClick={onToggleHandle} 
             />
 
             <Content $done = {bool}>
@@ -165,11 +171,14 @@ export const ToDoItem = function({$done, content, id}) {
             </Content>
 
             <SettingButton 
-            onClick={settingHandle}
-            />
-            
-
+                onClick={() => {
+                    settingHandle();
+                    OpenModal();
+                }}
+                />
+                
         </ListContainer>
+        <Scrap isOpen={open} closeModal=    {closeModal}/>
+        </>
     );
 };
-
