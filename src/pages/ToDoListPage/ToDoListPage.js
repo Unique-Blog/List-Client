@@ -1,5 +1,6 @@
 //library
 import React, { useState, useEffect } from 'react';
+import { Link } from "react-router-dom";
 
 //style
 import {
@@ -85,7 +86,10 @@ const ToDoListPage = () => {
     return (
         <>
             <Header>
-                <BackButton src={BackButtonImg} alt="뒤로가기 버튼" />
+                <Link to="/homePage">
+                <BackButton src={BackButtonImg} alt="뒤로가기 버튼" 
+                />
+                </Link>
                 To Do List
                 <Empty src={BackButtonImg} alt="투명" />
             </Header>

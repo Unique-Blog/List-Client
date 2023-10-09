@@ -25,7 +25,6 @@ const ToBuList = ({ userData, dataType }) => {
     //히위 컴포넌트에서 데이터를 전달 받는 함수
     const Todo = Math.floor(userData.percentage) || ["0"];   
     const [dealt, setDealt] = useState("0");
-   
 
     const handleDataChange = (newDealt) => {
         setDealt(newDealt);
