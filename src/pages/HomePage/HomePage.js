@@ -71,13 +71,10 @@ const HomePage = () => {
                     userData = {bucketData}
                     dataType = {"Bucket list"}
                     />
-
-
                 </Container>
             </DataContext.Provider>
         </>
     );
-
 }
 export default HomePage;
 

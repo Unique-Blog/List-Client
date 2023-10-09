@@ -133,6 +133,22 @@ export const SlideContainer = styled.div`
     height: 130px;
 `;
 
+export const NaNButton = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+    font-size:22px;
+`;
+
+export const PencilImg = styled.img`
+    margin-left:5px;
+    width: 30px;
+    height: 30px;
+`;
+
+
 const Content = styled.div`
     width: 200px;
     height: 30px;

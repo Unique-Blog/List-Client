@@ -30,10 +30,8 @@ const StyledSlider = styled(Slider)`
 function SimpleSlider({ userData, dataType, onDataChange}) {
  
   const userDataList = userData.allList || [];
-
   const handleDataChange = (newData) => {
       onDataChange(newData);
-      console.log("SS결과", newData);
   }
 
 
@@ -72,7 +70,6 @@ function SimpleSlider({ userData, dataType, onDataChange}) {
           </div>
 
         ))}
-
       </StyledSlider>
 
     </div>
