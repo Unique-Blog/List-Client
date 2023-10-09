@@ -73,6 +73,10 @@ const ToDoListPage = () => {
         saveData();
         setInputText('');
     }
+    const handleDataChange =(newData) => {
+        console.log("안녕 : ",newData);
+        setServerListData(newData);
+    }
 
     return (
         <>
@@ -99,6 +103,7 @@ const ToDoListPage = () => {
                 {serverListData.map((serverData, index) => (
                     <div key={index}>
                         <ToDoItem 
+                            onDataChange={handleDataChange} 
                             $done={serverData.completed}
                             content={serverData.content}
                             id={serverData.id}

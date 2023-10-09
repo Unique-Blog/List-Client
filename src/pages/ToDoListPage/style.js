@@ -141,7 +141,7 @@ const Content = styled.div`
 `;
 
 
-export const ToDoItem = function({$done, content, id, userId}) {
+export const ToDoItem = function({$done, content, id, userId, onDataChange}) {
     //modal 창
     const [open, setOpen] = useState(false);
 
@@ -152,6 +152,11 @@ export const ToDoItem = function({$done, content, id, userId}) {
     const onToggleHandle = () => {
         setBool(!bool);
     };
+
+    const handleDataChange = (newData) => {
+      onDataChange(newData);
+      console.log("SS결과", newData);
+  }
 
     const settingHandle = () => {
 
@@ -175,7 +180,7 @@ export const ToDoItem = function({$done, content, id, userId}) {
                 />
                 
         </ListContainer>
-        <Scrap isOpen={open} closeModal= {closeModal} id={id} userId={userId}/>
+        <Scrap isOpen={open} closeModal= {closeModal} id={id} userId={userId} onDataChange={handleDataChange}/>
         </>
     );
 };
