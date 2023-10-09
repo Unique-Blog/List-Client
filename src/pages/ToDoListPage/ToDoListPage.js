@@ -12,8 +12,6 @@ import {
     WriteButton,
     WriteImg,
     ToDoItem,
-    ModalContainer,
-
 } from "./style";
 
 //APIs
@@ -23,24 +21,13 @@ import { searchListReq } from "../../utils/axiosAPIs/axiosAPIs"
 //img
 import BackButtonImg from "../../images/arrow.png";
 import Write from "../../images/pencil.png";
-
-//components
 import Scrap from "../../components/Scrap/Scrap";
-
-
 
 const ToDoListPage = () => {
 
     const [serverListData, setServerListData] = useState([]);
     const [inputText, setInputText] = useState("");
     const [text, setText] = useState("");
-
-    {/*//하위 컴포넌트에서 받아온 출력 텍스트
-    const [childText, setChildText] = useState('');
-
-    const handleDataChange = (newData) => {
-        setChildText(newData);
-    }*/}
 
     useEffect(() => {
         const loadData = async () => {
@@ -117,9 +104,8 @@ const ToDoListPage = () => {
                             content={serverData.content}
                             id={serverData.id}
                             userId={serverData.userId}
-                        >
-                        </ToDoItem>
-
+                        />
+                        
                     </div>
                 ))}
 

@@ -128,7 +128,6 @@ export const SettingButton = styled.div`
     background-size: 20px;
 `;
 
-
 const Content = styled.div`
     margin: auto 5px auto 5px;
     font-size: 20px;

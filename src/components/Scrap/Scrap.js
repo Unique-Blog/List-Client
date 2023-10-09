@@ -1,37 +1,16 @@
 import { Container, BtnContainer, Modify, Delete, Text } from './style';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 //APIs
-import { updateText, deleteText, searchListReq } from '../../utils/axiosAPIs/axiosAPIs';
-
+import { updateText, deleteText } from '../../utils/axiosAPIs/axiosAPIs';
 
 const Scrap = ({isOpen, closeModal, id, userId}) => {
   console.log('scrap id확인: ', id);
 
-  //변경된 글 화면에 출력하는 부분
-  const [serverListData, setServerListData] = useState([]);
   //서버에 보낼 텍스트
   const [updateContent, setUpdateText] = useState("");
   //input으로 입력받아 저장하는 텍스트
   const [text, setText] = useState("");
-
- {/*} //상위 컴포넌트로 serverListData 전달
-  const sendDataToParent = ({updateContent}) => {
-    updateContent(serverListData);
-  }
-
-  useEffect(() => {
-        const loadData = async () => {
-            try {
-                const response = await searchListReq(sendId);
-                console.log("서버 데이터 조회 결과: ", response.data);
-                setServerListData(response.data.allList);
-            } catch (error) {
-                console.error('데이터 조회 실패:', error);
-            }
-        };
-        loadData();
-    }, []);*/}
 
   const handleOnChange = (e) => {
     setText(e.target.value);
