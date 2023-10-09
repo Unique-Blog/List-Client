@@ -23,12 +23,19 @@ Front End: [이지성](https://github.com/Ji-Sung05), [임시훈](https://github
 
 ### 1. 로그인
  `Axios`라이브러리를 사용하여 비동기 방식으로 서버에 전달. 서버의 허가가 있을 시 /HomePage로 이동
- 토글방식의 버튼으로 비밀번호 숨김/보임 기능 구현.
-
+ 토글방식의 버튼으로 비밀번호 숨김/보임 기능 구현.  
+<img src = "https://github.com/Unique-Blog/List-Client/assets/66302392/6bd5e0ad-ef77-416d-9580-6cbc6d7dc079" width = "500px" >
+ 
 ### 2. 회원가입
 
+<img src = "https://github.com/Unique-Blog/List-Client/assets/66302392/cce40d84-2dcc-4484-8010-2d96afdc14e5" width = "500px" >
+ 
 ### 3. To Do List & Bucket List 홈 화면
 
-### 4. To Do List & Bucket List 작성 화면
+<img src = "https://github.com/Unique-Blog/List-Client/assets/66302392/e7d4cd74-7d40-437a-82b8-a6e720add582" width = "500px" >
  
+
+### 4. To Do List & Bucket List 작성 화면
+
+<img src = "https://github.com/Unique-Blog/List-Client/assets/66302392/c0e99e21-5590-4e0e-ba2b-e467b02da7dd" width = "500px" >
  
