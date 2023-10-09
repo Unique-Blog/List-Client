@@ -103,8 +103,14 @@ export const deleteText = async(id) => {
     }
     try{
         const response = await axios.delete(
-            `http://10.114.10.19:8080/todo/delete/${id}`,
-            sendJson)
+      `http://10.114.10.19:8080/todo/delete/`, // URL 경로에 `/${id}`를 추가해야 합니다.
+        {
+            data: sendJson,
+            headers: {
+        'Content-Type': 'application/json'
+        }
+        }
+    );
             console.log('데이터 삭제 성공');
             console.log(response);
     }catch(error){
