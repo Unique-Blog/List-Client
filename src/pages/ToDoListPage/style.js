@@ -5,6 +5,7 @@ import Setting from '../../images/setting.png';
 import React, { useState } from 'react';
 //components
 import Scrap from "../../components/Scrap/Scrap";
+import { checkBoxClickReq } from '../../utils/axiosAPIs/axiosAPIs';
 
 export const Header = styled.div`
   display:flex;
@@ -147,7 +148,7 @@ const Content = styled.div`
     `}
 `;
 
-export const ToDoItem = function({$done, content, id, userId, onDataChange}) {
+export const ToDoItem = function({$done, content, id, userId, completed, onDataChange}) {
     //modal 창
     const [open, setOpen] = useState(false);
 
@@ -155,8 +156,12 @@ export const ToDoItem = function({$done, content, id, userId, onDataChange}) {
     function closeModal(){setOpen(false);}
     //체크박스
     const [bool, setBool] = useState($done);
+
+    const formDataId = new FormData();
+    formDataId.append("id", id);
     const onToggleHandle = () => {
         setBool(!bool);
+        checkBoxClickReq(formDataId, "todo");
     };
 
     const handleDataChange = (newData) => {
@@ -171,7 +176,9 @@ export const ToDoItem = function({$done, content, id, userId, onDataChange}) {
         <>
         <ListContainer>
             <CheckboxButton $done = {bool} 
-                onClick={onToggleHandle} 
+                onClick={() => {
+                onToggleHandle();
+                }}
             />
             <Content
                 $done = {bool}>
@@ -186,7 +193,7 @@ export const ToDoItem = function({$done, content, id, userId, onDataChange}) {
                 />
                 
         </ListContainer>
-        <Scrap isOpen={open} closeModal= {closeModal} id={id} userId={userId} onDataChange={handleDataChange}/>
+        <Scrap isOpen={open} closeModal= {closeModal} id={id} userId={userId} completed={completed} onDataChange={handleDataChange}/>
         </>
     );
 };
