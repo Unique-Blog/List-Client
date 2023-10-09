@@ -1,11 +1,10 @@
-# Getting Started with Create React App
+# React - Project - To Do List & Bucket List
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
-
-In the project directory, you can run:
-
+## 프로젝트의 목적
+리액트와 자바스크립트 그리고 디자인과 퍼블리싱 실력 향상을 위해 3일간 진행한 팀 프로젝트입니다.\
+<img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=React&logoColor=white">와 
+<img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=black">
 ### `npm start`
 
 Runs the app in the development mode.\
