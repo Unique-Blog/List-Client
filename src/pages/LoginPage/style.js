@@ -1,9 +1,17 @@
 import styled, { css } from 'styled-components';
 
+
+export const Header = styled.div`
+  font-size: 40px;
+  margin-top: 160px;
+  text-align: center;
+  font-family: 'Cafe24Bold';
+`;
+
 export const Form0 = styled.div`
   display: flex;
   position: relative;
-  top: 250px;
+  top: 70px;
   width: 300px;
   flex-direction: column;
   justify-content: center;

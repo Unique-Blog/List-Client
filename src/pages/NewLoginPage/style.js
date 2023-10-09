@@ -1,5 +1,31 @@
 import styled, { css } from 'styled-components';
 
+export const Header = styled.div`
+  display:flex;
+  width:350px;
+  margin: 120px auto 0;
+  justify-content: space-between;
+  align-content: center;
+
+  font-size: 35px;
+  font-family: 'Cafe24Bold';
+`;
+
+export const BackButton = styled.img`
+    width: 20px;
+    height: 20px;
+    margin: auto 0px auto 5px;
+    transform: rotate(180deg); //180도 돌리기
+`;
+
+export const Empty = styled.img`
+    width: 20px;
+    height: 20px;
+    margin: auto 0px auto 5px;
+    visibility: hidden;
+`;
+ 
+
 const disabledStyles = css`
   opacity: 0.6;
   pointer-events: none;
@@ -26,7 +52,7 @@ export const Label2 = styled.label`
 export const MainForm = styled.div`
   position: relative;
   width: 260px;
-  top: 230px;
+  top: 50px;
   margin: 0 auto;
 `;
 
