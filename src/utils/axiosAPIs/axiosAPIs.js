@@ -1,6 +1,5 @@
 import axios from 'axios';
 
-
 //json으로 content, completed, userId
 export const addListReq = async(listdata) => {
     const sendJson = {
@@ -68,3 +67,48 @@ export const checkBoxClickReq = async(data) => {
         console.log(error);
     }
 };
+
+//update
+export const updateText = async(listdata, id) => {
+    console.log('api id: ', id);
+    const sendJson = {
+        content: listdata,
+        id: id,
+        userId: '1'
+    }
+    try{
+        const response = await axios.post(
+            "http://10.114.10.19:8080/todo/update",
+            sendJson,
+            {
+                headers: {
+                'Content-Type': 'application/json',
+                },
+            }
+        );
+        console.log('데이터 수정 성공');
+        console.log(response);
+        return response;
+    }catch (error){
+        console.log('데이터 수정 실패');
+        console.log(error);
+    }
+};
+
+export const deleteText = async(id) => {
+    console.log('api delete id: ', id);
+    const sendJson = {
+        id: id,
+        userId: '1'
+    }
+    try{
+        const response = await axios.delete(
+            `http://10.114.10.19:8080/todo/delete/${id}`,
+            sendJson)
+            console.log('데이터 삭제 성공');
+            console.log(response);
+    }catch(error){
+        console.log('데이터 삭제 실패');
+        console.log(error)
+    }
+}

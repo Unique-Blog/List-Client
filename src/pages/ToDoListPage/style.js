@@ -142,7 +142,7 @@ const Content = styled.div`
 `;
 
 
-export const ToDoItem = function({$done, content, id}) {
+export const ToDoItem = function({$done, content, id, userId}) {
     //modal 창
     const [open, setOpen] = useState(false);
 
@@ -152,7 +152,6 @@ export const ToDoItem = function({$done, content, id}) {
     const [bool, setBool] = useState($done);
     const onToggleHandle = () => {
         setBool(!bool);
-        console.log(id); //서버에 아이디 보내기
     };
 
     const settingHandle = () => {
@@ -178,7 +177,7 @@ export const ToDoItem = function({$done, content, id}) {
                 />
                 
         </ListContainer>
-        <Scrap isOpen={open} closeModal=    {closeModal}/>
+        <Scrap isOpen={open} closeModal= {closeModal} id={id} userId={userId}/>
         </>
     );
 };

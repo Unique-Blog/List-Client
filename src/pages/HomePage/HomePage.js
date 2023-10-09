@@ -18,7 +18,11 @@ const HomePage = () => {
     const [bucketData, setBucketData] = useState([]);
 
     const userReq = async () => {
+        //localStorage로 유저 정보 받아오는 곳
         const userId = localStorage.getItem("userId");
+        const id = localStorage.getItem("id");
+        const content = localStorage.getItem("content");
+
         const response1 = await axios.post(
             `${process.env.REACT_APP_SERVER_URL}/todo/search`,{
                 userId: userId,
