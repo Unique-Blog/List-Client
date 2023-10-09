@@ -149,22 +149,36 @@ const Content = styled.div`
     `}
 `;
 
-export const UserListItem = function({$done, content, id, onDataChange}) {
+export const UserListItem = function({
+    $done, 
+    dataType, 
+    content, 
+    id, 
+    onDataChange
+}) {
     //체크박스
     const [bool, setBool] = useState($done);
     const formDataId = new FormData();
     formDataId.append("id", id);
     const navigate = useNavigate();
-   
+    // const [endPoint, setEndPoint] = useState(dataType);
+    const endPoint = dataType;
     const onToggleHandle = () => {
         setBool(!bool);
-
+    
     const savePercent = async() => {
         try{
-            const response = await checkBoxClickReq(formDataId);
-           
-            console.log("style.js 결과: ", response);
-            onDataChange(response);
+            if(endPoint === "To do list") {
+                const response = await checkBoxClickReq(formDataId, "todo");
+                console.log("style.js/todo 결과: ", response);
+                onDataChange(response);
+            }
+            else {
+                const response = await checkBoxClickReq(formDataId, "bucket");
+                console.log("style.js/todo 결과: ", response);
+                onDataChange(response);
+            }
+            
         }
         catch(error) {
             console.log("실패");
@@ -174,10 +188,15 @@ export const UserListItem = function({$done, content, id, onDataChange}) {
     };
 
     const NavigateHandler = () => {
-        navigate('/ToDoListPage');
+        if(dataType === "To do list"){
+            navigate('/ToDoListPage');
+        }
+        else{
+            navigate('/BucketListPage');
+        }
+      
     }
 
-    
     return (
         <SlideText>
             <CheckBoxImg $done = {bool} 

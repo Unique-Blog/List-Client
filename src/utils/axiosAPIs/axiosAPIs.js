@@ -51,10 +51,11 @@ export const searchListReq = async(data) => {
     }
 };
 
-export const checkBoxClickReq = async(formdata) => {
+export const checkBoxClickReq = async(formdata, endPoint) => {
+    
     try{
         const response = await axios.post(
-            "http://10.114.10.19:8080/todo/completed",
+            `${process.env.REACT_APP_SERVER_URL}/${endPoint}/completed`,
             formdata,
         );
         console.log(response.data);

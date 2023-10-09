@@ -44,7 +44,8 @@ const ToBuList = ({ userData, dataType }) => {
             <BodyContainer>
                 <SlideContainer>
                     <SimpleSlider onDataChange={handleDataChange} 
-                    userData={userData} />
+                    userData={userData}
+                    dataType={dataType} />
                 </SlideContainer>
             </BodyContainer>
         </ListContainer>

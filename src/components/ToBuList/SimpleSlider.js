@@ -28,7 +28,7 @@ const StyledSlider = styled(Slider)`
     
 `;
 
-function SimpleSlider({ userData, onDataChange}) {
+function SimpleSlider({ userData, dataType, onDataChange}) {
  
   const userDataList = userData.allList || [];
 
@@ -64,6 +64,7 @@ function SimpleSlider({ userData, onDataChange}) {
           <div key={index}>
             <UserListItem
               onDataChange={handleDataChange}
+              dataType={dataType}
               $done={userDataList.completed}
               content={userDataList.content}
               id={userDataList.id}
