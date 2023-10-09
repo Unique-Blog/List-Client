@@ -77,6 +77,10 @@ const ToDoListPage = () => {
         console.log("안녕 : ",newData);
         setServerListData(newData);
     }
+    const handleDeleteChange = (newData) => {
+        console.log("delete 잘 됐나: ", newData);
+        setServerListData(newData);
+    }
 
     return (
         <>
@@ -104,6 +108,7 @@ const ToDoListPage = () => {
                     <div key={index}>
                         <ToDoItem 
                             onDataChange={handleDataChange} 
+                            onDeleteChange={handleDeleteChange}
                             $done={serverData.completed}
                             content={serverData.content}
                             id={serverData.id}

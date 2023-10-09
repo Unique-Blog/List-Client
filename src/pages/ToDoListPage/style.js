@@ -155,7 +155,7 @@ export const ToDoItem = function({$done, content, id, userId, onDataChange}) {
 
     const handleDataChange = (newData) => {
       onDataChange(newData);
-      console.log("SS결과", newData);
+      console.log("상위 컴포넌트한테 보낸 데이터 결과: ", newData);
   }
 
     const settingHandle = () => {
@@ -167,7 +167,6 @@ export const ToDoItem = function({$done, content, id, userId, onDataChange}) {
             <CheckboxButton $done = {bool} 
                 onClick={onToggleHandle} 
             />
-
             <Content $done = {bool}>
                 {content}
             </Content>

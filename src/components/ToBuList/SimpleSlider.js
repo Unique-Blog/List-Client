@@ -28,12 +28,12 @@ const StyledSlider = styled(Slider)`
 `;
 
 function SimpleSlider({ userData, dataType, onDataChange}) {
- 
+
   const userDataList = userData.allList || [];
 
   const handleDataChange = (newData) => {
       onDataChange(newData);
-      console.log("SS결과", newData);
+      console.log("결과", newData);
   }
 
 

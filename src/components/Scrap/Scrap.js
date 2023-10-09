@@ -49,7 +49,8 @@ const Scrap = ({isOpen, closeModal, id, userId, onDataChange}) => {
       try{
         const response = await deleteText(id, userId);
         console.log("데이터 삭제 성공: ", response);
-        deleteData = response.data;
+        onDataChange(response.data);
+        console.log("scrap 삭제 데이터 전달 확인: ", response.data);
       }catch (error){
         console.log("데이터 삭제 실패: ", error);
       }
