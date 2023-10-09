@@ -35,11 +35,11 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     margin: 0 auto; 
-    height: 440px;
+    height: 388px;
     width: 350px;
-
     overflow-y: scroll;
-    overflow-x: hidden;
+    position: relative;
+    left: 4px;
     &::-webkit-scrollbar {
     width: 8px;
     height: 8px;
@@ -56,11 +56,11 @@ export const AddContainer = styled.div`
   display:flex;
   width: 328px;
   height: 43px;
-  margin: 5px 7px 15px auto;
   border: 1px solid #000;
   border-radius: 5px;
   outline: none;
   position: relative;
+  margin: 0 auto;
 `;
 
 export const AddForm = styled.input`

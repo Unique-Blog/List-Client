@@ -90,8 +90,8 @@ const ToDoListPage = () => {
                 <Empty src={BackButtonImg} alt="투명" />
             </Header>
 
-            <Container>
-                <AddContainer>
+
+            <AddContainer>
                     <AddForm
                         type="text"
                         placeholder='오늘의 할 일을 작성하세요!'
@@ -103,7 +103,7 @@ const ToDoListPage = () => {
                         <WriteImg src={Write} alt="작성" />
                     </WriteButton>
                 </AddContainer>
-
+            <Container>
                 {serverListData.map((serverData, index) => (
                     <div key={index}>
                         <ToDoItem 
