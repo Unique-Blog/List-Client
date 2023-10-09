@@ -165,6 +165,7 @@ const Content = styled.div`
     `}
 `;
 
+
 export const UserListItem = function({
     $done, 
     dataType, 
@@ -210,19 +211,18 @@ export const UserListItem = function({
         else{
             navigate('/BucketListPage');
         }
-      
     }
 
     return (
         <SlideText>
             <CheckBoxImg $done = {bool} 
-             onClick={onToggleHandle} 
+            onClick={onToggleHandle} 
             />
             <Content 
             $done = {bool}
             onClick={NavigateHandler}
             >
-              {content}
+            {content}
             </Content>
         </SlideText>
     );

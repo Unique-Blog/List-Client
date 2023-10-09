@@ -131,6 +131,11 @@ export const SettingButton = styled.div`
 `;
 
 const Content = styled.div`
+    width: 230px;
+    height: 30px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
     margin: auto 5px auto 5px;
     font-size: 20px;
     font-family: 'Cafe24Regular';
@@ -141,7 +146,6 @@ const Content = styled.div`
         color: #D8D8D8;
     `}
 `;
-
 
 export const ToDoItem = function({$done, content, id, userId, onDataChange}) {
     //modal 창
@@ -169,7 +173,8 @@ export const ToDoItem = function({$done, content, id, userId, onDataChange}) {
             <CheckboxButton $done = {bool} 
                 onClick={onToggleHandle} 
             />
-            <Content $done = {bool}>
+            <Content
+                $done = {bool}>
                 {content}
             </Content>
 
