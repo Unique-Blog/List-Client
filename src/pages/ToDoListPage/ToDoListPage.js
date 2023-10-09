@@ -21,7 +21,6 @@ import { searchListReq } from "../../utils/axiosAPIs/axiosAPIs"
 //img
 import BackButtonImg from "../../images/arrow.png";
 import Write from "../../images/pencil.png";
-import Scrap from "../../components/Scrap/Scrap";
 
 const ToDoListPage = () => {
 
