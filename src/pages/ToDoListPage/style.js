@@ -35,10 +35,12 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     margin: 0 auto; 
-    height: 388px;
+    height: 350px;
     width: 350px;
     overflow-y: scroll;
+    overflow-x: hidden;
     position: relative;
+    top: 20px;
     left: 4px;
     &::-webkit-scrollbar {
     width: 8px;
