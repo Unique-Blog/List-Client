@@ -1,6 +1,4 @@
 import axios from 'axios';
-import { useState } from 'react';
-
 
 //json으로 content, completed, userId
 export const addListReq = async(listdata) => {

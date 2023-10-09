@@ -10,8 +10,7 @@ import {
 import styled from 'styled-components';
 //library
 import Slider from "react-slick";
-import axios from "axios";
-import React, { useState } from 'react';
+import React from 'react';
 //images
 import arrow from "../../images/arrow.png"
 
