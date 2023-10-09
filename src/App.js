@@ -10,7 +10,7 @@ import Login from './pages/LoginPage/LoginPage';
 import HomePage from './pages/HomePage/HomePage';
 import NewLoginPage from './pages/NewLoginPage/NewLoginPage';
 import ToDoListPage from './pages/ToDoListPage/ToDoListPage';
-import Scrap from './components/Scrap/Scrap';
+import BucketListPage from './pages/BucketListPage/BucketListPage';
 
 function App() {
 
@@ -20,9 +20,9 @@ function App() {
           <Routes>
             <Route path="/" element={<Login/>} />
             <Route path="/HomePage" element={<HomePage/>} />
-            <Route path="/Scrap" element={<Scrap/>} />
             <Route path="/ToDoListPage" element={<ToDoListPage/>} />
             <Route path="/NewLoginPage" element={<NewLoginPage/>} />
+            <Route path="/BucketListPage" element={<BucketListPage/>} />
           </Routes>
         </Router>
       </GlobalBackground>
