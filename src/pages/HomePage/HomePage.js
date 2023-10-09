@@ -14,61 +14,65 @@ export const useData = () => {
 
 const HomePage = () => {
 
-    const [userData, setUserData] = useState([]);
+    const [toDoData, setToDoData] = useState([]);
     const [bucketData, setBucketData] = useState([]);
 
-    const userReq = async () => {
-        //localStorage로 유저 정보 받아오는 곳
+    const toDoReq = async () => {
         const userId = localStorage.getItem("userId");
-        const id = localStorage.getItem("id");
-        const content = localStorage.getItem("content");
-
-        const response1 = await axios.post(
+        const toDoResponse = await axios.post(
             `${process.env.REACT_APP_SERVER_URL}/todo/search`,{
                 userId: userId,
             });
-            console.log("데이터: ", response1.data)
-        return response1;
+            console.log("투두 퍼센트: ", toDoResponse.data.percentage);
+        return toDoResponse.data;
     }
+
 
     const bucketReq = async () => {
         const userId = localStorage.getItem("userId");
-        const response2 = await axios.post(
+        const bucketResponse = await axios.post(
             `${process.env.REACT_APP_SERVER_URL}/bucket/search`,{
                 userId: userId,
             });
-        return response2;
+            console.log("데이터: ", bucketResponse.data.allList);
+           
+            console.log("버킷 퍼센트: ", bucketResponse.data.percentage);
+        return bucketResponse.data;
     }
+    
 
     useEffect(() => {
-        userReq()
-            .then((response1) => {
-                setUserData(response1.data.allList);  
+        toDoReq()
+            .then((toDoResponse) => {
+                setToDoData(toDoResponse);  
             })
             .catch((error) => {
                 console.log('실패');
             });
         bucketReq()
-            .then((response2) => {
-                setBucketData(response2.data);  
+            .then((bucketResponse) => {
+                setBucketData(bucketResponse);  
             })
             .catch((error) => {
                 console.log('실패');
             });
     },[]);
 
-    // const handleIdCheck = (contentProp, isScrappedProp, idProp) => {
-    // console.log(contentProp);
-    // console.log(isScrappedProp);
-    // console.log(idProp);
-    // };
     return (
         <>
             <Header>나만의 리스트</Header>
-            <DataContext.Provider value={userData}>
+            <DataContext.Provider value={toDoData}>
                 <Container>
-                    <ToBuList userData = {userData}/>
-                    <ToBuList bucketData = {bucketData}/>
+                    <ToBuList 
+                    userData = {toDoData}
+                    dataType = {"To do list"}
+                    />
+                    <ToBuList 
+                    userData = {bucketData}
+                    dataType = {"Bucket list"}
+                    />
+
+
                 </Container>
             </DataContext.Provider>
         </>

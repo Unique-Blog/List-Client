@@ -156,7 +156,6 @@ export const ToDoItem = function({$done, content, id, userId}) {
     const settingHandle = () => {
 
     }
-
     return (
         <>
         <ListContainer>
