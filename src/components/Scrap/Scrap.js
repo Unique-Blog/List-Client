@@ -15,8 +15,6 @@ const Scrap = ({isOpen, closeModal, id, userId}) => {
   //input으로 입력받아 저장하는 텍스트
   const [text, setText] = useState("");
 
-  const sendId = userId;
-
  {/*} //상위 컴포넌트로 serverListData 전달
   const sendDataToParent = ({updateContent}) => {
     updateContent(serverListData);
@@ -47,7 +45,7 @@ const Scrap = ({isOpen, closeModal, id, userId}) => {
     const updateData = async () => {
       console.log("서버에 보낼 데이터 확인: ", text);
       try{
-        const response = await updateText(updateContent, id);
+        const response = await updateText(updateContent, id, userId);
         console.log("서버 데이터 수정 결과: ",
         response.data);
         
@@ -70,7 +68,7 @@ const Scrap = ({isOpen, closeModal, id, userId}) => {
     const deleteData = async () => {
       console.log("삭제 id: ", id);
       try{
-        const response = await deleteText(id);
+        const response = await deleteText(id, userId);
         console.log("데이터 삭제 성공: ", response);
       }catch (error){
         console.log("데이터 삭제 실패: ", error);

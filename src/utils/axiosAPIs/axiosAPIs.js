@@ -69,12 +69,12 @@ export const checkBoxClickReq = async(data) => {
 };
 
 //update
-export const updateText = async(listdata, id) => {
-    console.log('api id: ', id);
+export const updateText = async(listdata, id, userId) => {
+    console.log('api userId: ', userId);
     const sendJson = {
         content: listdata,
         id: id,
-        userId: '1'
+        userId: userId
     }
     try{
         const response = await axios.post(
@@ -95,11 +95,11 @@ export const updateText = async(listdata, id) => {
     }
 };
 
-export const deleteText = async(id) => {
+export const deleteText = async(id, userId) => {
     console.log('api delete id: ', id);
     const sendJson = {
         id: id,
-        userId: '1'
+        userId: userId
     }
     try{
         const response = await axios.delete(
