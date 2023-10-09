@@ -4,7 +4,7 @@ import { useState } from 'react';
 //APIs
 import { updateText, deleteText } from '../../utils/axiosAPIs/axiosAPIs';
 
-const Scrap = ({isOpen, closeModal, id, userId, onDataChange}) => {
+const Scrap = ({isOpen, closeModal, id, userId, onDataChange, completed}) => {
   console.log('scrap id확인: ', id);
 
   //서버에 보낼 텍스트
@@ -24,7 +24,7 @@ const Scrap = ({isOpen, closeModal, id, userId, onDataChange}) => {
     const updateData = async () => {
       console.log("서버에 보낼 데이터 확인: ", text);
       try{
-        const response = await updateText(updateContent, id, userId);
+        const response = await updateText(updateContent, id, userId, completed);
         console.log("서버 데이터 수정 결과: ",
         response.data);
         

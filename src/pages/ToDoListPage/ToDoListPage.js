@@ -1,5 +1,6 @@
 //library
 import React, { useState, useEffect } from 'react';
+import { Link } from "react-router-dom";
 
 //style
 import {
@@ -85,13 +86,16 @@ const ToDoListPage = () => {
     return (
         <>
             <Header>
-                <BackButton src={BackButtonImg} alt="뒤로가기 버튼" />
+                <Link to="/homePage">
+                <BackButton src={BackButtonImg} alt="뒤로가기 버튼" 
+                />
+                </Link>
                 To Do List
                 <Empty src={BackButtonImg} alt="투명" />
             </Header>
 
-            <Container>
-                <AddContainer>
+
+            <AddContainer>
                     <AddForm
                         type="text"
                         placeholder='오늘의 할 일을 작성하세요!'
@@ -103,7 +107,7 @@ const ToDoListPage = () => {
                         <WriteImg src={Write} alt="작성" />
                     </WriteButton>
                 </AddContainer>
-
+            <Container>
                 {serverListData.map((serverData, index) => (
                     <div key={index}>
                         <ToDoItem 

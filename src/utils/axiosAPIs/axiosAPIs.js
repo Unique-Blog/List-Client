@@ -2,10 +2,11 @@ import axios from 'axios';
 
 //json으로 content, completed, userId
 export const addListReq = async(listdata) => {
+    const id = localStorage.getItem("userId");
     const sendJson = {
         content: listdata,
         completed: false,
-        userId: '1'
+        userId: id
     }
 //userId 로컬에서 가져오기.
     try{
@@ -71,12 +72,14 @@ export const checkBoxClickReq = async(formdata, endPoint) => {
 };
 
 //update
-export const updateText = async(listdata, id, userId) => {
+export const updateText = async(listdata, id, userId, completed) => {
+    console.log("completed: ", completed);
     console.log('api userId: ', userId);
     const sendJson = {
         content: listdata,
         id: id,
-        userId: userId
+        userId: userId,
+        completed: completed
     }
     try{
         const response = await axios.post(

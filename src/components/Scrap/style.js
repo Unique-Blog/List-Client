@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 export const Container = styled.div`
   width: 250px;
@@ -7,8 +7,8 @@ export const Container = styled.div`
   border-radius: 4px;
   background-color: white;
   position: fixed;
-  top: 335px;
-  left: 95px;
+  top: 290px;
+  left: 135px;
 `;
 
 export const Text = styled.input`

@@ -5,6 +5,7 @@ import Setting from '../../images/setting.png';
 import React, { useState } from 'react';
 //components
 import Scrap from "../../components/Scrap/Scrap";
+import { checkBoxClickReq } from '../../utils/axiosAPIs/axiosAPIs';
 
 export const Header = styled.div`
   display:flex;
@@ -35,11 +36,13 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     margin: 0 auto; 
-    height: 440px;
+    height: 350px;
     width: 350px;
-
     overflow-y: scroll;
     overflow-x: hidden;
+    position: relative;
+    top: 20px;
+    left: 4px;
     &::-webkit-scrollbar {
     width: 8px;
     height: 8px;
@@ -56,11 +59,11 @@ export const AddContainer = styled.div`
   display:flex;
   width: 328px;
   height: 43px;
-  margin: 5px 7px 15px auto;
   border: 1px solid #000;
   border-radius: 5px;
   outline: none;
   position: relative;
+  margin: 0 auto;
 `;
 
 export const AddForm = styled.input`
@@ -129,6 +132,11 @@ export const SettingButton = styled.div`
 `;
 
 const Content = styled.div`
+    width: 230px;
+    height: 30px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
     margin: auto 5px auto 5px;
     font-size: 20px;
     font-family: 'Cafe24Regular';
@@ -140,8 +148,7 @@ const Content = styled.div`
     `}
 `;
 
-
-export const ToDoItem = function({$done, content, id, userId, onDataChange}) {
+export const ToDoItem = function({$done, content, id, userId, completed, onDataChange}) {
     //modal 창
     const [open, setOpen] = useState(false);
 
@@ -149,8 +156,12 @@ export const ToDoItem = function({$done, content, id, userId, onDataChange}) {
     function closeModal(){setOpen(false);}
     //체크박스
     const [bool, setBool] = useState($done);
+
+    const formDataId = new FormData();
+    formDataId.append("id", id);
     const onToggleHandle = () => {
         setBool(!bool);
+        checkBoxClickReq(formDataId, "todo");
     };
 
     const handleDataChange = (newData) => {
@@ -165,9 +176,12 @@ export const ToDoItem = function({$done, content, id, userId, onDataChange}) {
         <>
         <ListContainer>
             <CheckboxButton $done = {bool} 
-                onClick={onToggleHandle} 
+                onClick={() => {
+                onToggleHandle();
+                }}
             />
-            <Content $done = {bool}>
+            <Content
+                $done = {bool}>
                 {content}
             </Content>
 
@@ -179,7 +193,7 @@ export const ToDoItem = function({$done, content, id, userId, onDataChange}) {
                 />
                 
         </ListContainer>
-        <Scrap isOpen={open} closeModal= {closeModal} id={id} userId={userId} onDataChange={handleDataChange}/>
+        <Scrap isOpen={open} closeModal= {closeModal} id={id} userId={userId} completed={completed} onDataChange={handleDataChange}/>
         </>
     );
 };

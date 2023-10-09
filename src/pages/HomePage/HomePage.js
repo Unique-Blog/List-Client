@@ -35,7 +35,7 @@ const HomePage = () => {
                 userId: userId,
             });
             console.log("데이터: ", bucketResponse.data.allList);
-           
+
             console.log("버킷 퍼센트: ", bucketResponse.data.percentage);
         return bucketResponse.data;
     }
