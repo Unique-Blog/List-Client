@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { useState } from 'react';
 
 
 //json으로 content, completed, userId
@@ -29,6 +30,7 @@ export const addListReq = async(listdata) => {
     }
 };
 
+
 export const searchListReq = async(data) => {
     try{
         const response = await axios.post(
@@ -49,22 +51,22 @@ export const searchListReq = async(data) => {
     }
 };
 
-export const checkBoxClickReq = async(data) => {
+export const checkBoxClickReq = async(formdata) => {
     try{
         const response = await axios.post(
-            "http://10.114.10.19:8080/todo/search",
-            data,
-            {
-                headers: {
-                'Content-Type': 'application/json',
-                },
-            }
+            "http://10.114.10.19:8080/todo/completed",
+            formdata,
         );
-        console.log('서버 통신 성공');
-        console.log(response);
-        return response;
+        console.log(response.data);
+        const arr = response.data;
+        const count = arr.filter(item => item.completed === true).length;
+        const allCount = arr.length;
+        const completedPercentage = Math.floor(count/allCount*100);
+        console.log(completedPercentage);
+        return completedPercentage;
+        
     } catch (error) {
-        console.log('서버 통신 실패');
+        console.log('formdata 전송 실패');
         console.log(error);
     }
 };

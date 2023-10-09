@@ -147,13 +147,9 @@ export const ToDoItem = function({$done, content, id}) {
         console.log(id); //서버에 아이디 보내기
     };
 
-   
-
     const settingHandle = () => {
 
-
     }
-
     return (
         <ListContainer>
             <CheckboxButton $done = {bool} 
