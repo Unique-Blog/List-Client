@@ -115,6 +115,7 @@ export const deleteText = async(id, userId) => {
     );
             console.log('데이터 삭제 성공');
             console.log(response);
+            return response;
     }catch(error){
         console.log('데이터 삭제 실패');
         console.log(error)

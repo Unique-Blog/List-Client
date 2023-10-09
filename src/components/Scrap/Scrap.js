@@ -4,14 +4,14 @@ import { useState } from 'react';
 //APIs
 import { updateText, deleteText } from '../../utils/axiosAPIs/axiosAPIs';
 
-const Scrap = ({isOpen, closeModal, id, userId}) => {
+const Scrap = ({isOpen, closeModal, id, userId, onDataChange}) => {
   console.log('scrap id확인: ', id);
 
   //서버에 보낼 텍스트
   const [updateContent, setUpdateText] = useState("");
   //input으로 입력받아 저장하는 텍스트
   const [text, setText] = useState("");
-
+  
   const handleOnChange = (e) => {
     setText(e.target.value);
     const text = e.target.value;
@@ -31,7 +31,8 @@ const Scrap = ({isOpen, closeModal, id, userId}) => {
         if(response === 400){
           alert("값을 입력해 주세요");
         }else{
-
+          onDataChange(response.data);
+          
         } 
       }catch(error){
           console.log('데이터 수정 실패: ', error);
@@ -41,7 +42,6 @@ const Scrap = ({isOpen, closeModal, id, userId}) => {
     updateData();
     setText('');
   }
-
   //삭제하는 부분
   const deleteClick = () => {
     const deleteData = async () => {
@@ -49,6 +49,8 @@ const Scrap = ({isOpen, closeModal, id, userId}) => {
       try{
         const response = await deleteText(id, userId);
         console.log("데이터 삭제 성공: ", response);
+        onDataChange(response.data);
+        console.log("scrap 삭제 데이터 전달 확인: ", response.data);
       }catch (error){
         console.log("데이터 삭제 실패: ", error);
       }
@@ -70,6 +72,7 @@ const Scrap = ({isOpen, closeModal, id, userId}) => {
           <Modify onClick={() => {
             closeModal();
             updateClick();
+            
           }}>수정</Modify>
           <Delete onClick={() => {
             closeModal();
