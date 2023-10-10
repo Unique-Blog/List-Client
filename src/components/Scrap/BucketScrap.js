@@ -46,11 +46,13 @@ const BucketScrap = ({isOpen, closeModal, id, userId, onDataChange, completed}) 
   const bucketDeleteClick = () => {
     const deleteData = async () => {
       console.log("삭제 id: ", id);
+      console.log("삭제 id: ", userId);
+      
       try{
         const response = await bucketDeleteText(id, userId);
         console.log("데이터 삭제 성공: ", response);
         onDataChange(response.data);
-        console.log("scrap 삭제 데이터 전달 확인: ", response.data);
+        console.log("버켓 삭제 데이터 전달 확인: ", response.data);
       }catch (error){
         console.log("데이터 삭제 실패: ", error);
       }

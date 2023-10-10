@@ -75,7 +75,6 @@ const BucketListPage = () => {
         setInputText('');
     }
     const handleDataChange =(newData) => {
-        console.log("안녕 : ",newData);
         setServerListData(newData);
     }
 

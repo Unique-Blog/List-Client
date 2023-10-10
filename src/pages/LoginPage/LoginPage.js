@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 //styles
-import { Header, Form0, Button, LinkBtn } from './style';
+import { Header, Form0, Button, LinkBtn, WrongId } from './style';
 //Components
 import PwVisible from '../../components/InputPw/PwVisible';
 import PwNonVisible from '../../components/InputPw/PwNonVisible';
@@ -16,6 +16,7 @@ const LoginPage = () => {
     //서버와 통신할 때 필요한 정보(아이디, 패스워드)
     const [userId, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [wrongId, setWrongId] = useState(' ');
 
     //링크 인라인스타일
     const linkStyle = {
@@ -41,7 +42,7 @@ const LoginPage = () => {
             //로그인 성공시 화면 전환
             navigate('/HomePage');
         } catch (error) {
-            // 로그인 실패 시 처리
+            setWrongId("아이디 또는 비밀번호를 잘못 입력했습니다.");
             console.error('로그인 실패:', error);
         }
     };
@@ -58,11 +59,12 @@ const LoginPage = () => {
                     placeholder="비밀번호"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)} />
+                <WrongId>{wrongId}</WrongId>
                 <Button disabled={!isValid} onClick={handleLogin}>로그인</Button>
-                <LinkBtn>
-                    <Link to="/NewLoginPage" style={linkStyle}>계정이 없으신가요?</Link>
-                </LinkBtn>
             </Form0>
+            <LinkBtn>
+                <Link to="/NewLoginPage" style={linkStyle}>계정이 없으신가요?</Link>
+            </LinkBtn>
         </>
     );
 };
