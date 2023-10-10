@@ -42,9 +42,11 @@ const ToDoListPage = () => {
         loadData();
     }, []);
 
+    
+    const localId = localStorage.getItem("userId");
 
     const sendId = {
-        userId: "1"
+        userId: localId
     }
 
     const handleOnChange = (e) => {

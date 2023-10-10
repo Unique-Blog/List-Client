@@ -26,6 +26,13 @@ const disabledStyles = css`
   /* 다른 스타일을 추가하려면 여기에 추가 */
 `;
 
+export const WrongId = styled.p` 
+  font-size: 13px;
+  color: red;
+  height: 30px;
+`;
+
+
 export const Button = styled.button`
   width: 260px;
   height: 50px;
@@ -39,5 +46,6 @@ export const Button = styled.button`
 `;
 
 export const LinkBtn = styled.div`
-  margin-top: 80px;
+  text-align: center;
+  margin-top: 100px;
 `;
