@@ -148,13 +148,10 @@ export const updateText = async(listdata, id, userId, completed) => {
 };
 
 export const bucketUpdateText = async(listdata, id, userId, completed) => {
-    console.log("completed: ", completed);
-    console.log('api userId: ', userId);
-    const id1 = localStorage.getItem("userId");
     const sendJson = {
         content: listdata,
         id: id,
-        userId: id1,
+        userId: userId,
         completed: completed
     }
     try{
@@ -202,7 +199,6 @@ export const deleteText = async(id, userId) => {
 }
 
 export const bucketDeleteText = async(id, userId) => {
-    console.log('api delete id: ', id);
     const sendJson = {
         id: id,
         userId: userId

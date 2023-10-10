@@ -193,7 +193,7 @@ export const ToDoItem = function({$done, content, id, userId, completed, onDataC
                 />
                 
         </ListContainer>
-        {<BucketScrap isOpen={open} closeModal={closeModal} id = {id} useId={userId} completed={completed} onBucketDataChange={bucketDataChange}/>}
+        {<BucketScrap isOpen={open} closeModal={closeModal} id = {id} userId={userId} completed={completed} onDataChange={bucketDataChange}/>}
         
         </>
     );
