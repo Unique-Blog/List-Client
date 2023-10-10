@@ -1,14 +1,19 @@
-//network
+//library
 import axios from 'axios';
-
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 //styles
-import { Header, Form0, Button, LinkBtn, WrongId } from './style';
+import {
+    Header,
+    Form0,
+    Button,
+    LinkBtn,
+    WrongId
+} from './style';
 //Components
-import PwVisible from '../../components/InputPw/PwVisible';
-import PwNonVisible from '../../components/InputPw/PwNonVisible';
+import InputId from '../../components/InputLogin/InputId';
+import PwNonVisible from '../../components/InputLogin/PwNonVisible';
 
 const LoginPage = () => {
     //화면 전환
@@ -34,7 +39,6 @@ const LoginPage = () => {
                 userId: userId,
                 password: password
             });
-
             // 서버에서 반환한 데이터를 기반으로 로그인 상태를 처리할 수 있습니다.
             console.log('로그인 성공:', response.data);
             //로컬스토리지에 userId 저장
@@ -52,15 +56,20 @@ const LoginPage = () => {
                 나만의 리스트
             </Header>
             <Form0>
-                <PwVisible
+                <InputId
                     value={userId}
                     onChange={(e) => setUsername(e.target.value)} />
                 <PwNonVisible
                     placeholder="비밀번호"
                     value={password}
-                    onChange={(e) => setPassword(e.target.value)} />
+                    onChange={(e) => setPassword(e.target.value)}
+                />
                 <WrongId>{wrongId}</WrongId>
-                <Button disabled={!isValid} onClick={handleLogin}>로그인</Button>
+                <Button
+                    disabled={!isValid}
+                    onClick={handleLogin}>
+                    로그인
+                </Button>
             </Form0>
             <LinkBtn>
                 <Link to="/NewLoginPage" style={linkStyle}>계정이 없으신가요?</Link>

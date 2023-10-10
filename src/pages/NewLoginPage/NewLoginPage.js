@@ -17,8 +17,8 @@ import {
 } from './style';
 
 //components
-import PwVisible from '../../components/InputPw/PwVisible';
-import PwNonVisible from '../../components/InputPw/PwNonVisible';
+import InputId from '../../components/InputLogin/InputId';
+import PwNonVisible from '../../components/InputLogin/PwNonVisible';
 
 //img
 import BackButtonImg from "../../images/arrow.png";
@@ -70,7 +70,7 @@ const NewLoginPage = () => {
 
       <MainForm>
         <Label>아이디</Label>
-        <PwVisible
+        <InputId
           value={userId}
           onChange={(e) => setUsername(e.target.value)}
         />

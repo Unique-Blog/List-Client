@@ -1,11 +1,11 @@
 //styles
-import { PwVisi } from './style';
+import { InputIdContainer } from './style';
 
-const PwVisible = ({value, onChange}) => {
+const InputId = ({value, onChange}) => {
 
   return(
     <>
-      <PwVisi 
+      <InputIdContainer 
         type="text"
         placeholder='아이디'
         value={value}
@@ -14,4 +14,4 @@ const PwVisible = ({value, onChange}) => {
   );
 }
 
-export default PwVisible;
+export default InputId;
