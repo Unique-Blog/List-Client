@@ -29,11 +29,58 @@ export const addListReq = async(listdata) => {
     }
 };
 
+export const bucketAddListReq = async(listdata) => {
+    const id = localStorage.getItem("userId");
+    const sendJson = {
+        content: listdata,
+        completed: false,
+        userId: id
+    }
+//userId 로컬에서 가져오기.
+    try{
+        const response = await axios.post(
+            "http://10.114.10.19:8080/bucket/save",
+            sendJson,
+            {
+                headers: {
+                'Content-Type': 'application/json',
+                },
+            }
+        );
+        console.log('데이터 추가 성공');
+        console.log(response);
+        return response;
+    } catch (error) {
+        const statusCode = error.response.status;
+        console.log('데이터 추가 실패코드: ', statusCode);
+        return statusCode;
+    }
+};
 
 export const searchListReq = async(data) => {
     try{
         const response = await axios.post(
             "http://10.114.10.19:8080/todo/search",
+            data,
+            {
+                headers: {
+                'Content-Type': 'application/json',
+                },
+            }
+        );
+        console.log('서버 통신 성공');
+        console.log(response);
+        return response;
+    } catch (error) {
+        console.log('서버 통신 실패');
+        console.log(error);
+    }
+};
+
+export const bucketSearchListReq = async(data) => {
+    try{
+        const response = await axios.post(
+            "http://10.114.10.19:8080/bucket/search",
             data,
             {
                 headers: {
@@ -100,6 +147,35 @@ export const updateText = async(listdata, id, userId, completed) => {
     }
 };
 
+export const bucketUpdateText = async(listdata, id, userId, completed) => {
+    console.log("completed: ", completed);
+    console.log('api userId: ', userId);
+    const id1 = localStorage.getItem("userId");
+    const sendJson = {
+        content: listdata,
+        id: id,
+        userId: id1,
+        completed: completed
+    }
+    try{
+        const response = await axios.post(
+            "http://10.114.10.19:8080/bucket/update",
+            sendJson,
+            {
+                headers: {
+                'Content-Type': 'application/json',
+                },
+            }
+        );
+        console.log('데이터 수정 성공');
+        console.log(response);
+        return response;
+    }catch (error){
+        console.log('데이터 수정 실패');
+        console.log(error);
+    }
+};
+
 export const deleteText = async(id, userId) => {
     console.log('api delete id: ', id);
     const sendJson = {
@@ -109,6 +185,31 @@ export const deleteText = async(id, userId) => {
     try{
         const response = await axios.delete(
         `http://10.114.10.19:8080/todo/delete/`, 
+        {
+            data: sendJson,
+            headers: {
+        'Content-Type': 'application/json'
+        }
+        }
+    );
+            console.log('데이터 삭제 성공');
+            console.log(response);
+            return response;
+    }catch(error){
+        console.log('데이터 삭제 실패');
+        console.log(error)
+    }
+}
+
+export const bucketDeleteText = async(id, userId) => {
+    console.log('api delete id: ', id);
+    const sendJson = {
+        id: id,
+        userId: userId
+    }
+    try{
+        const response = await axios.delete(
+        `http://10.114.10.19:8080/bucket/delete/`, 
         {
             data: sendJson,
             headers: {
