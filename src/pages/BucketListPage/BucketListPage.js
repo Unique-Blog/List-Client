@@ -29,6 +29,12 @@ const BucketListPage = () => {
     const [inputText, setInputText] = useState("");
     const [text, setText] = useState("");
 
+    const localId = localStorage.getItem("userId");
+
+    const sendId = {
+        userId: localId
+    }
+    
     useEffect(() => {
         const loadData = async () => {
             try {
@@ -43,9 +49,6 @@ const BucketListPage = () => {
     }, []);
 
 
-    const sendId = {
-        userId: "1"
-    }
 
     const handleOnChange = (e) => {
         setInputText(e.target.value);
