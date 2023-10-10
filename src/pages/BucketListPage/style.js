@@ -4,7 +4,7 @@ import UnCheckBox  from '../../images/uncheckbox.png';
 import Setting from '../../images/setting.png';
 import React, { useState } from 'react';
 //components
-import Scrap from "../../components/Scrap/Scrap";
+import BucketScrap from "../../components/Scrap/BucketScrap";
 import { checkBoxClickReq } from '../../utils/axiosAPIs/axiosAPIs';
 
 export const Header = styled.div`
@@ -148,13 +148,7 @@ const Content = styled.div`
     `}
 `;
 
-export const ToDoItem = function({
-    $done, 
-    content, 
-    id, 
-    userId, 
-    completed, 
-    onDataChange, }) {
+export const ToDoItem = function({$done, content, id, userId, completed, onDataChange}) {
     //modal 창
     const [open, setOpen] = useState(false);
 
@@ -167,14 +161,13 @@ export const ToDoItem = function({
     formDataId.append("id", id);
     const onToggleHandle = () => {
         setBool(!bool);
-        checkBoxClickReq(formDataId, "todo");
+        checkBoxClickReq(formDataId, "bucket");
     };
 
-    const handleDataChange = (newData) => {
+    const bucketDataChange = (newData) => {
       onDataChange(newData);
       console.log("상위 컴포넌트한테 보낸 데이터 결과: ", newData);
   }
-
 
     const settingHandle = () => {
 
@@ -200,7 +193,7 @@ export const ToDoItem = function({
                 />
                 
         </ListContainer>
-        <Scrap isOpen={open} closeModal= {closeModal} id={id} userId={userId} completed={completed} onDataChange={handleDataChange}/>
+        {<BucketScrap isOpen={open} closeModal={closeModal} id = {id} useId={userId} completed={completed} onBucketDataChange={bucketDataChange}/>}
         
         </>
     );

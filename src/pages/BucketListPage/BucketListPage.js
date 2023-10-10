@@ -16,14 +16,14 @@ import {
 } from "./style";
 
 //APIs
-import { addListReq } from "../../utils/axiosAPIs/axiosAPIs"
-import { searchListReq } from "../../utils/axiosAPIs/axiosAPIs"
+import { bucketAddListReq } from "../../utils/axiosAPIs/axiosAPIs"
+import { bucketSearchListReq } from "../../utils/axiosAPIs/axiosAPIs"
 
 //img
 import BackButtonImg from "../../images/arrow.png";
 import Write from "../../images/pencil.png";
 
-const ToDoListPage = () => {
+const BucketListPage = () => {
 
     const [serverListData, setServerListData] = useState([]);
     const [inputText, setInputText] = useState("");
@@ -32,7 +32,7 @@ const ToDoListPage = () => {
     useEffect(() => {
         const loadData = async () => {
             try {
-                const response = await searchListReq(sendId);
+                const response = await bucketSearchListReq(sendId);
                 console.log("서버 데이터 조회 결과: ", response.data);
                 setServerListData(response.data.allList);
             } catch (error) {
@@ -58,7 +58,7 @@ const ToDoListPage = () => {
         setText('');
         const saveData = async () => {
             try {
-                const response = await addListReq(inputText);
+                const response = await bucketAddListReq(inputText);
                 console.log("서버 데이터 저장 결과: ", response.data);
                 if(response === 400){
                     alert("값을 입력해 주세요");
@@ -79,6 +79,7 @@ const ToDoListPage = () => {
         setServerListData(newData);
     }
 
+
     return (
         <>
             <Header>
@@ -86,11 +87,9 @@ const ToDoListPage = () => {
                 <BackButton src={BackButtonImg} alt="뒤로가기 버튼" 
                 />
                 </Link>
-                To Do List
+                Bucket List
                 <Empty src={BackButtonImg} alt="투명" />
             </Header>
-
-
             <AddContainer>
                     <AddForm
                         type="text"
@@ -122,4 +121,4 @@ const ToDoListPage = () => {
     );
 }
 
-export default ToDoListPage;
+export default BucketListPage;
