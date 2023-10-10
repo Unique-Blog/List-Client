@@ -8,7 +8,7 @@ export const Container = styled.div`
   background-color: white;
   position: fixed;
   top: 260px;
-  left: 265px;
+  margin-left: 11%;
 `;
 
 export const Text = styled.input`
