@@ -33,15 +33,13 @@ export const Eye = styled.div`
 `;
 
 export const EyeState = styled.div` 
-  background-image:  url(${closeeyeimg}); //기본상태: 닫힌 눈
-  background-repeat: no-repeat;
-  background-size: contain;
   width: 20px;
   height: 20px;
   opacity: 0.4; //투명도
-  ${props =>
-    props.$done &&
-    css`
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image:  url(${closeeyeimg}); //기본상태: 닫힌 눈
+  ${props => props.$done && css`
         background-image: url(${openeyeimg}); //props로 false를 전달 받으면 열린 눈
     `}
 `;
