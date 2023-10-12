@@ -1,0 +1,32 @@
+나만의 ToDoList 엔드포인트
+
+/user/login
+로그인
+
+/user/signup
+회원가입
+
+/todo/save
+투두리스트 추가
+
+/todo/search
+투두리스트 조회
+
+/bucket/save
+버킷리스트 추가
+
+/bucket/search
+버킷리스트 조회
+
+데이터 형식
+  "id": 2,
+  "content": "방 청소하기",
+  "completed": true,
+  "userId": "wb"
+
+서버로 보내야하는 데이터
+search - userId
+save - content, completed, userId
+update - id, content, completed, userId
+delete - id, userId
+deleteAll - userId 
