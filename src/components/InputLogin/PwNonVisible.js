@@ -8,7 +8,6 @@ const PwNonVisible = ({ placeholder, value, onChange }) => {
   const [isPasswdVisible, setIsPasswdVisible] = useState(false);
   const togglePasswordVisibility = () => {
     setIsPasswdVisible(!isPasswdVisible);
-    console.log(isPasswdVisible);
   };
   return (
     <>

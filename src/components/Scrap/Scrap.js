@@ -5,8 +5,6 @@ import { useState } from 'react';
 import { updateText, deleteText } from '../../utils/axiosAPIs/axiosAPIs';
 
 const Scrap = ({isOpen, closeModal, id, userId, onDataChange, completed}) => {
-  console.log('scrap id확인: ', id);
-
   //서버에 보낼 텍스트
   const [updateContent, setUpdateText] = useState("");
   //input으로 입력받아 저장하는 텍스트
@@ -16,13 +14,11 @@ const Scrap = ({isOpen, closeModal, id, userId, onDataChange, completed}) => {
     setText(e.target.value);
     const text = e.target.value;
     setUpdateText(text);
-    console.log("입력 되는지 확인: ", text);
   }
   
   //update하는 부분
   const updateClick = () => {
     const updateData = async () => {
-      console.log("서버에 보낼 데이터 확인: ", text);
       try{
         const response = await updateText(updateContent, id, userId, completed);
         console.log("서버 데이터 수정 결과: ",
@@ -36,7 +32,6 @@ const Scrap = ({isOpen, closeModal, id, userId, onDataChange, completed}) => {
         } 
       }catch(error){
           console.log('데이터 수정 실패: ', error);
-          console.log("입력할 데이터: ", text);
         }
     };
     updateData();
@@ -46,12 +41,10 @@ const Scrap = ({isOpen, closeModal, id, userId, onDataChange, completed}) => {
   //삭제하는 부분
   const deleteClick = () => {
     const deleteData = async () => {
-      console.log("삭제 id: ", id);
       try{
         const response = await deleteText(id, userId);
         console.log("데이터 삭제 성공: ", response);
         onDataChange(response.data);
-        console.log("scrap 삭제 데이터 전달 확인: ", response.data);
       }catch (error){
         console.log("데이터 삭제 실패: ", error);
       }
