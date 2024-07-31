@@ -20,11 +20,7 @@ export const Form0 = styled.div`
   gap: 6px;
 `;
 
-const disabledStyles = css`
-  opacity: 0.6;
-  pointer-events: none;
-  /* 다른 스타일을 추가하려면 여기에 추가 */
-`;
+
 
 export const WrongId = styled.p` 
   font-size: 13px;
@@ -43,6 +39,11 @@ export const Button = styled.button`
   border-radius: 5px;
   border: none;
   ${({ disabled }) => disabled && disabledStyles}
+`;
+
+const disabledStyles = css`
+  opacity: 0.6;
+  pointer-events: none;
 `;
 
 export const LinkBtn = styled.div`

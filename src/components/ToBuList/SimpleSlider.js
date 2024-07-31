@@ -1,10 +1,10 @@
 //style
-import { 
+import {
   BackButton,
-  FrontButton, 
-  BackImg, 
-  FrontImg, 
-  UserListItem 
+  FrontButton,
+  BackImg,
+  FrontImg,
+  UserListItem
 } from "./style";
 
 import styled from 'styled-components';
@@ -24,15 +24,19 @@ const StyledSlider = styled(Slider)`
       height: 30px;
       border: 0px solid #000;
     }
-    
+
 `;
 
-function SimpleSlider({ userData, dataType, onDataChange}) {
+function SimpleSlider({ userData, dataType, onDataChange }) {
 
   const userDataList = userData.allList || [];
   const handleDataChange = (newData) => {
-      onDataChange(newData);
+    onDataChange(newData);
   }
+  
+  const SlickButtonFix = ({ currentSlide, slideCount, children, ...props }) => (
+    <span {...props}>{children}</span>
+  );
 
 
   const settings = {
@@ -44,14 +48,18 @@ function SimpleSlider({ userData, dataType, onDataChange}) {
     arrows: true,
     rows: 3,
     nextArrow: (
-      <FrontButton>
-        <FrontImg alt="오른쪽화살표" src={arrow} />
-      </FrontButton>
+      <SlickButtonFix>
+        <FrontButton>
+          <FrontImg alt="오른쪽화살표" src={arrow} />
+        </FrontButton>
+      </SlickButtonFix>
     ),
     prevArrow: (
-      <BackButton>
-        <BackImg alt="왼쪽화살표" src={arrow} />
-      </BackButton>
+      <SlickButtonFix>
+        <BackButton>
+          <BackImg alt="왼쪽화살표" src={arrow} />
+        </BackButton>
+      </SlickButtonFix>
     ),
   };
   return (

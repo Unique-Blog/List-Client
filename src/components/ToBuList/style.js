@@ -30,7 +30,7 @@ export const PercentNum = styled.div`
     width:30px;
 `;
 
-export const Progress = styled.div`
+export const ProgressIn = styled.div`
     width: 170px;
     height: 8px;
     border-radius: 20px;
@@ -39,7 +39,7 @@ export const Progress = styled.div`
     margin: auto;
 `;
 
-export const Progress2 = styled.div`
+export const ProgressOut = styled.div`
     display:flex;
     width: 180px;
     height: 15px;
@@ -52,9 +52,10 @@ export const Progress2 = styled.div`
 
 // Dealt 컴포넌트를 스타일링합니다
 export const Dealt = styled.div`
- border-radius: 20px;
-  background-color: #3DA5F5; // 테마에서 색상을 가져오는 예시입니다.
+  border-radius: 20px;
+  background-color: #3DA5F5; 
   height: 100%;
+  transition: width 0.3s;
 `;
 
 export const BodyContainer = styled.div`
@@ -187,7 +188,7 @@ export const UserListItem = function({
         try{
             if(endPoint === "To do list") {
                 const response = await checkBoxClickReq(formDataId, "todo");
-                console.log("style.js/todo 결과: ", response);
+                console.log('response',response)
                 onDataChange(response);
             }
             else {
